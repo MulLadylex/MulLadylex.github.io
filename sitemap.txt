@@ -1,3 +1,3 @@
-http://mullexlady.github.io/2022/12/01/SpringIoC/
-http://mullexlady.github.io/2022/12/01/hello-world/
-http://mullexlady.github.io/
+http://lexlady.github.io/2022/12/01/SpringIoC/
+http://lexlady.github.io/2022/12/01/hello-world/
+http://lexlady.github.io/
