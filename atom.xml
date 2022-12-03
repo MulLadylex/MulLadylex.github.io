@@ -6,7 +6,7 @@
   <link href="http://mullexlady.github.io/atom.xml" rel="self"/>
   
   <link href="http://mullexlady.github.io/"/>
-  <updated>2022-12-01T10:01:38.542Z</updated>
+  <updated>2022-12-01T14:17:14.713Z</updated>
   <id>http://mullexlady.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringIoC</title>
+    <link href="http://mullexlady.github.io/2022/12/01/SpringIoC/"/>
+    <id>http://mullexlady.github.io/2022/12/01/SpringIoC/</id>
+    <published>2022-12-01T13:43:42.000Z</published>
+    <updated>2022-12-01T14:17:14.713Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
