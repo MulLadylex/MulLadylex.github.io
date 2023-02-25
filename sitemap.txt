@@ -1,4 +1,6 @@
-http://lexlady.github.io/2022/12/01/SpringIoC/
-http://lexlady.github.io/2022/12/01/hello-world/
-http://lexlady.github.io/
-http://lexlady.github.io/categories/Spring%E6%95%99%E7%A8%8B/
+http://lexlady.top/2022/12/26/SpringAOP/
+http://lexlady.top/2022/12/01/SpringIoC/
+http://lexlady.top/2022/12/01/hello-world/
+http://lexlady.top/
+http://lexlady.top/tags/SpringBoot/
+http://lexlady.top/categories/Spring%E6%95%99%E7%A8%8B/
