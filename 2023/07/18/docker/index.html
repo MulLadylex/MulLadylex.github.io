@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>docker | LexLady</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>docker</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-07-18T02:01:51.000Z" id="date"> 2023-07-18</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-07-19T07:23:41.908Z" id="updated"> 2023-07-19</time></div></span></div></div><hr><div id="post-content"><h1 id="docker简介"><a href="#docker简介" class="headerlink" title="docker简介"></a>docker简介</h1><p>解决应用在不同开发环境上的环境配置的麻烦————docker：系统平滑移植，容器虚拟化技术</p>
+<p>Docker可以将软件的原生环境复制过来，消除了协作编码时 <em>“我的机器上可以正常工作”</em> 的问题</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Docker是基于GO的云开源项目，解决<strong>运行环境</strong>和<strong>配置问题</strong>的软件容器，方便做持续集成、整体发布的容器虚拟化技术。</p>
+<h2 id="docker特点"><a href="#docker特点" class="headerlink" title="docker特点"></a>docker特点</h2><p>“Build， Ship and Run Any App， Anywhere”</p>
+<p>通过对应用的封装、发布、部署、运行等生命周期的管理，使其能够做到“一次镜像，处处运行”</p>
+<ul>
+<li><p>安全可靠<br>  容器间的隔离不仅限于彼此，还独立于底层的基础设施。当应用出现问题时，不会波及到主机</p>
+</li>
+<li><p>资源利用率高<br>  容器拥有很高的兼容性，能够将应用直接迁移到另一个平台，提高了开发效率，减少了部署应用的工作量</p>
+</li>
+<li><p>标准开放<br>  容器基于开放式标准，能够在任何基础设施上运行。运输方式、存储方式、API接口隔离</p>
+</li>
+<li><p>轻量化<br>  容器的构建快速且使用更少的计算和内存，</p>
+</li>
+</ul>
+<h2 id="架构与主要功能组件"><a href="#架构与主要功能组件" class="headerlink" title="架构与主要功能组件"></a>架构与主要功能组件</h2><p>docker整体采用C&#x2F;S模式，客户端主要负责发送操作指令，服务端负责接受和处理指令。客户端和服务端之间的通信方式多样</p>
+<h3 id="功能组件"><a href="#功能组件" class="headerlink" title="功能组件"></a>功能组件</h3><ul>
+<li>Docker客户端<br>  Docker客户端一般通过Docker command来发起请求</li>
+<li>Docker服务器（Docker daemon）<br>  接受客户端发来的请求，并实现所要求的的功能，同时针对请求返回相应的结果。</li>
+<li>Docker容器</li>
+<li>Docker镜像<br>  镜像是一个只读的模板，用来创建相应的容器。</li>
+<li>Docker仓库<br>  仓库是存放镜像的地方，类似于Maven，GitHub。docker提供的官方registry————Docker Hub。仓库可分为公开仓库和私有仓库</li>
+</ul>
+<h2 id="与传统虚拟机的对比"><a href="#与传统虚拟机的对比" class="headerlink" title="与传统虚拟机的对比"></a>与传统虚拟机的对比</h2><p>虚拟机（virtual machine），可以在一种操作系统里运行另一种操作系统。</p>
+<p>传统虚拟机技术是通过在主操作系统上的虚拟管理系统（VMware、virtualBox）创建虚拟机（模拟各种硬件），安装操作系统，安装部署各种应用</p>
+<ul>
+<li>特点<ul>
+<li>资源占用多</li>
+<li>冗余步骤多</li>
+<li>启动慢</li>
+</ul>
+</li>
+</ul>
+<p>Linux容器（Linux Containers，LXC）是与系统其他部分隔离开的一系列进程，容器不是模拟一个完整的操作系统而是对进程进行隔离，将软件运行所需的所有资源打包到一个隔离的容器中，因此在开发到测试再到生产的过程中，他都具有<strong>可移植性</strong>和<strong>一致性</strong>。<br>容器虚拟化技术不需要捆绑一整套操作系统，只需要软件工作所需的库资源和设置，整个过程更轻量，高效并保证在任何环境中能够运行</p>
+<p>总结：容器是在操作系统层面上实现虚拟化，容器之间共享主机的操作系统，容器作为进程在主机上运行；而虚拟机是在硬件层面上实现虚拟化，有自己的操作系统且独立于主机操作系统。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Cgroup<br>对进程资源进行限制，对资源的使用进行追踪。</p>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><p>容器是镜像的运行实例，就如同Java语言中类与对象的关系。</p>
+<p>容器是一个轻量级的沙箱子，可以被启动、开始、停止、删除，每个容器之间相互隔离，保证了平台的安全。</p>
+<h1 id="docker常用指令"><a href="#docker常用指令" class="headerlink" title="docker常用指令"></a>docker常用指令</h1><h2 id="容器生命周期管理"><a href="#容器生命周期管理" class="headerlink" title="容器生命周期管理"></a>容器生命周期管理</h2><ul>
+<li><p>docker run</p>
+<p>  创建一个新的容器（并运行一个命令）</p>
+<p>  <code>docker run [OPTIONS] IMAGE [COMMAND]</code></p>
+<p>  常见参数：</p>
+<ul>
+<li>-d：后台运行容器，将返回容器ID</li>
+<li>-i：以交互模式运行容器，常与-i一起使用</li>
+<li>-P：随机端口映射，容器内部端口随机映射到主机的端口</li>
+<li>-p：指定端口映射，格式<code>主机端口:容器端口</code></li>
+<li>-t：为容器分配一个伪输入终端</li>
+<li>–name：为容器指定一个名称</li>
+<li>–net：指定容器的网络连接类型</li>
+<li>–link：连接到另一个容器</li>
+<li>–volume：绑定一个卷</li>
+</ul>
+</li>
+<li><p>docker start&#x2F;stop&#x2F;restart</p>
+<p>  start：启动一个或多个已被停止的容器</p>
+<p>  stop：停止一个正在运行的容器</p>
+<p>  restart：重启容器</p>
+</li>
+<li><p>docker kill</p>
+<p>  杀掉一个运行中的容器</p>
+</li>
+<li><p>docker rm</p>
+<p>  删除一个或多个容器</p>
+</li>
+<li><p>docker exec</p>
+</li>
+</ul>
+<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><ul>
+<li><p>docker ps</p>
+</li>
+<li><p>docker inspect</p>
+<p>  获取容器&#x2F;镜像的元数据。</p>
+</li>
+<li><p>docker attach</p>
+</li>
+<li><p>docker</p>
+</li>
+</ul>
+<h2 id="本地镜像管理"><a href="#本地镜像管理" class="headerlink" title="本地镜像管理"></a>本地镜像管理</h2><ul>
+<li><p>docker image tag</p>
+</li>
+<li><p>docker image build </p>
+<p>  根据Dockerfile文件构建新镜像，其中还有些常见的选项，简写为docker build</p>
+<ul>
+<li>-t，生成镜像的名字及标签，可以在一次构建中为一个镜像设置多个标签</li>
+<li>-f，指定使用的Dockerfile文件</li>
+</ul>
+</li>
+<li><p>docker image history</p>
+<p>  可以查看指定镜像的创建历史</p>
+</li>
+<li><p>docker image save</p>
+</li>
+<li><p>docker image load</p>
+</li>
+</ul>
+<h2 id="容器rootfs命令"><a href="#容器rootfs命令" class="headerlink" title="容器rootfs命令"></a>容器rootfs命令</h2><ul>
+<li>docker commit</li>
+<li>docker cp</li>
+</ul>
+<h2 id="镜像仓库"><a href="#镜像仓库" class="headerlink" title="镜像仓库"></a>镜像仓库</h2><ul>
+<li>docker login&#x2F;logout</li>
+<li>docker pull</li>
+<li>docker push</li>
+<li>docker search</li>
+</ul>
+<h2 id="info-version"><a href="#info-version" class="headerlink" title="info|version"></a>info|version</h2><ul>
+<li>docekr info</li>
+<li>docker version</li>
+</ul>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/07/25/go-argument/">← Next go_argument</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/05/07/go-dataStructure/">数据类型 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"><div id="toc-div"><h1>INDEX</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">docker简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">docker特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E4%B8%8E%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">架构与主要功能组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">功能组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">1.4.</span> <span class="toc-text">与传统虚拟机的对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.5.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">3.</span> <span class="toc-text">docker常用指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">容器生命周期管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.</span> <span class="toc-text">容器操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">本地镜像管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8rootfs%E5%91%BD%E4%BB%A4"><span class="toc-number">3.4.</span> <span class="toc-text">容器rootfs命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93"><span class="toc-number">3.5.</span> <span class="toc-text">镜像仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#info-version"><span class="toc-number">3.6.</span> <span class="toc-text">info|version</span></a></li></ol></li></ol></div></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
