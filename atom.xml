@@ -248,18 +248,14 @@
     <link href="http://lexlady.top/2023/04/28/Golang/Golang/"/>
     <id>http://lexlady.top/2023/04/28/Golang/Golang/</id>
     <published>2023-04-28T02:05:02.362Z</published>
-    <updated>2023-07-09T07:25:56.871Z</updated>
+    <updated>2023-07-31T13:39:54.391Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="GO语言特色"><a href="#GO语言特色" class="headerlink" title="GO语言特色"></a>GO语言特色</h1><ul><li>简洁、快速、安全</li><li>并行、开源</li><li>编译迅速、内存管理</li></ul><h1 id="GO用途"><a href="#GO用途" class="headerlink" title="GO用途"></a>GO用途</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了解决在软件开发过程中的一些令人头疼的问题并尝试设计一门全新的编程语言，且不是用奇怪的语法和晦涩难懂的概念来从根本上推翻已有的编程语言。</p><p><code>Go</code>语言就在这样的环境下诞生了，它让人感觉像是<code>Python</code>或<code>Ruby</code>这样的动态语言，却又拥有像<code>C</code>或者<code>Java</code>这类语言的高性能和安全性。</p><p>它提倡通过接口来面向对象编程，通过<code>goroutine</code>和<code>channel</code>来支持并发和并行编程。</p><h2 id="GO语言特色"><a href="#GO语言特色" class="headerlink" title="GO语言特色"></a>GO语言特色</h2><ul><li>简洁、快速、安全</li><li>从本质上实现并发编程</li><li>使用静态类型，执行速度非常快</li><li>作为强类型语言，隐式的类型转换是不被允许的<br>Go语言通过改善或去除在C、C++或Java中一些特性来使开发更加便利，例如变量的默认初始化，内存分配和自动回收。</li></ul><p>所有的行为都突出一个宗旨：减少不必要的编码工作使代码更加简洁，从而比传统的面向对象语言更容易阅读和理解。</p><h2 id="GO用途"><a href="#GO用途" class="headerlink" title="GO用途"></a>GO用途</h2><p>Go 语言的主要目标是将静态语言的安全性和高效性与动态语言的易开发性进行有机结合，达到完美平衡；</p><p>用于实现一般目标的语言，例如对文本的处理，前端展现，像脚本一样使用…</p><p>另一个目标是对于网络通信、并发和并行编程的极佳支持，从而更好地利用大量的分布式和多核的计算机。</p><p>用于Web服务器的开发</p><blockquote><p>记住，学习一门新语言的最佳方式就是实践，运行它的代码，修改并尝试更多的方案。</p></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;GO语言特色&quot;&gt;&lt;a href=&quot;#GO语言特色&quot; class=&quot;headerlink&quot; title=&quot;GO语言特色&quot;&gt;&lt;/a&gt;GO语言特色&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;简洁、快速、安全&lt;/li&gt;
-&lt;li&gt;并行、开源&lt;/li&gt;
-&lt;li&gt;编译迅速、内存管理&lt;/li&gt;
-</summary>
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;为了解决在软件开发过程中的一些令人头疼的问题并尝试设计一门全新的编程语言，且不是用奇怪的语法和晦涩难懂的概念来从根本上推翻已有的编程语言。&lt;</summary>
       
     
     
