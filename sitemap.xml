@@ -250,6 +250,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>http://lexlady.top/tags/ERC/</loc>
+    <lastmod>2023-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -268,6 +275,13 @@
   
   <url>
     <loc>http://lexlady.top/categories/Golang/</loc>
+    <lastmod>2023-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://lexlady.top/categories/Ethereum/</loc>
     <lastmod>2023-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
