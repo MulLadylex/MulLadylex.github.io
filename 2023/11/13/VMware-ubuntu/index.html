@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VMware_ubuntu | LexLady</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>VMware_ubuntu</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-11-13T08:44:44.000Z" id="date"> 2023-11-13</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-11-13T09:07:53.911Z" id="updated"> 2023-11-13</time></div></span></div></div><hr><div id="post-content"><p>操作环境：<br>VMware：<br>Ubuntu：20.04</p>
+<p>常用命令：</p>
+<p>遇见的坑：</p>
+<p>Golang安装：</p>
+<p>在安装Golang语言的时候，通过执行下面命令后会默认安装最新版本。</p>
+<p><code>sudo add-apt-repository ppa:longsleep/golang-backports</code></p>
+<p><code>sudo apt updata</code></p>
+<p><code>sudo apt install golang-go</code></p>
+<p>安装完成后，要设置GOROOT、GOPATH等环境变量，使用</p>
+<p><code>sudo vi ~/.profile</code></p>
+<p>编辑以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">export GOROOT=&quot;/usr/lib/go&quot;<br>export GOBIN=$GOROOT/bin<br>export GOPATH=<br>export GO111MODULE=auto<br>export PATH=$PATH:$GOPATH/bin<br></code></pre></td></tr></table></figure>
+<p>修改完成后使用</p>
+<p><code>source ~/.profile</code></p>
+<p>进行重新生效。此时可以通过<code>go version</code>或<code>$GOROOT</code>命令进行验证是否安装成功。</p>
+<p>而博主要使用某个低版本的Golang语言，采用了apt search后进行apt install正常安装完成后。</p>
+<p>在修改完环境变量后仍然显示</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/11/15/Ethernaut/delegation/">← Next Delegation</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/07/18/docker/docker/">docker Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

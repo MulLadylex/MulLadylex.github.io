@@ -1,7 +1,14 @@
-http://lexlady.top/2023/03/12/ERC1155/
 http://lexlady.top/2023/03/12/ERC721/
+http://lexlady.top/2023/02/25/Ethernaut/Ether/
+http://lexlady.top/2023/11/15/Ethernaut/delegation/
+http://lexlady.top/2023/11/15/Ethernaut/token/
+http://lexlady.top/2023/11/15/Ethernaut/telephone/
+http://lexlady.top/2023/11/15/Ethernaut/coinflip/
+http://lexlady.top/2023/11/15/Ethernaut/fallout/
+http://lexlady.top/2023/11/15/Ethernaut/fallback/
+http://lexlady.top/2023/11/13/VMware-ubuntu/
+http://lexlady.top/2023/03/12/ERC1155/
 http://lexlady.top/2023/03/12/ERC20/
-http://lexlady.top/2023/02/25/Ether/
 http://lexlady.top/2023/05/05/Golang/go_env/
 http://lexlady.top/categories/index.html
 http://lexlady.top/2023/05/05/Golang/go-BasicGrammer/
@@ -14,7 +21,7 @@ http://lexlady.top/2023/05/27/Golang/go-function/
 http://lexlady.top/2023/05/27/Golang/go-loopStatement/
 http://lexlady.top/2023/05/27/Golang/go-conditionalStatement/
 http://lexlady.top/2022/12/01/SprintBoot/SpringIoC/
-http://lexlady.top/2023/07/18/docker/
+http://lexlady.top/2023/07/18/docker/docker/
 http://lexlady.top/2023/04/01/Capture-the-Ether/
 http://lexlady.top/2022/12/26/SprintBoot/SpringAOP/
 http://lexlady.top/2023/04/11/web3-js/
@@ -32,3 +39,4 @@ http://lexlady.top/categories/%E9%9D%B6%E5%9C%BA/
 http://lexlady.top/categories/Spring-Boot/
 http://lexlady.top/categories/Golang/
 http://lexlady.top/categories/Ethereum/
+http://lexlady.top/categories/Ethernaut/
