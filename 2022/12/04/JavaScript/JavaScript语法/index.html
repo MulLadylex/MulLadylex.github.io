@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>JavaScript语法 | LexLady</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>JavaScript语法</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2022-12-04T14:43:31.000Z" id="date"> 2022-12-04</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-12-04T14:50:09.370Z" id="updated"> 2023-12-04</time></div></span></div></div><hr><div id="post-content"><h1 id="JavaScript语法"><a href="#JavaScript语法" class="headerlink" title="JavaScript语法"></a>JavaScript语法</h1><h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><p>一般固定值称为字面量，如：</p>
+<ul>
+<li>数字字面量：<code>123</code></li>
+<li>字符串字面量：<code>&quot;Hello World!&quot;</code></li>
+<li>布尔字面量: <code>true</code>、<code>false</code>、<code>null</code>、<code>undefined</code></li>
+<li>数组字面量：<code>[1,2,3]</code></li>
+<li>对象字面量：<code>&#123;name:&quot;Lex&quot;,age:21&#125;</code></li>
+<li>函数表达式字面量：<code> function()&#123;&#125;</code></li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是存储数据值的容器，可以通过变量名访问变量的值。<br>JavaScript使用关键字<code>var</code>来声明变量，语法：<code>var varName = value</code>，varName是变量名，value是变量值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;<br><span class="hljs-keyword">var</span> y = <span class="hljs-number">6</span>;<br><span class="hljs-keyword">var</span> z = x + y;<br></code></pre></td></tr></table></figure>
+<p>一条语句可以声明多个变量，也可以横跨多行，语法：<code>var var1 = value1, var2 = value2, var3 = value3</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>, y = <span class="hljs-number">6</span>, z = x + y;<br><span class="hljs-keyword">var</span> lastName = <span class="hljs-string">&quot;L&quot;</span>,<br>    firstName = <span class="hljs-string">&quot;Lex&quot;</span>,<br>    age = <span class="hljs-number">21</span>;<br></code></pre></td></tr></table></figure>
+
+<p>变量可以使用任何名称，但以下规则必须遵守：</p>
+<ul>
+<li>变量名称以字母、下划线或美元符号<code>$</code>开头</li>
+<li>变量名称不能以数字开头</li>
+<li>变量名称对大小写敏感（y和Y是不同的变量）</li>
+<li>保留字（关键字）不能用作变量名</li>
+<li>变量名应使用驼峰大小写</li>
+</ul>
+<blockquote>
+<p>JavaScript 变量均为对象。当您声明一个变量时，就创建了一个新的对象。<br>变量是一个名称，字面量是一个值。</p>
+</blockquote>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h3 id="算术操作符"><a href="#算术操作符" class="headerlink" title="算术操作符"></a>算术操作符</h3><table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">加法</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">减法</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">乘法</td>
+</tr>
+<tr>
+<td align="center">&#x2F;</td>
+<td align="center">除法</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">求余</td>
+</tr>
+<tr>
+<td align="center">++</td>
+<td align="center">递增</td>
+</tr>
+<tr>
+<td align="center">–</td>
+<td align="center">递减</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt;</td>
+<td align="center">左移</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;</td>
+<td align="center">右移</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;&gt;</td>
+<td align="center">无符号右移</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">按位与</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">按位异或</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">按位非</td>
+</tr>
+<tr>
+<td align="center">&amp;&amp;</td>
+<td align="center">逻辑与</td>
+</tr>
+<tr>
+<td align="center">||</td>
+<td align="center">逻辑或</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">逻辑非</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;</td>
+<td align="center">等于</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;&#x3D;</td>
+<td align="center">全等</td>
+</tr>
+<tr>
+<td align="center">!&#x3D;</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">!&#x3D;&#x3D;</td>
+<td align="center">不全等</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">&gt;&#x3D;</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">&lt;&#x3D;</td>
+<td align="center">小于等于</td>
+</tr>
+</tbody></table>
+<h3 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h3><table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x3D;</td>
+<td align="center">赋值</td>
+</tr>
+<tr>
+<td align="center">+&#x3D;</td>
+<td align="center">加法赋值</td>
+</tr>
+<tr>
+<td align="center">-&#x3D;</td>
+<td align="center">减法赋值</td>
+</tr>
+<tr>
+<td align="center">*&#x3D;</td>
+<td align="center">乘法赋值</td>
+</tr>
+<tr>
+<td align="center">&#x2F;&#x3D;</td>
+<td align="center">除法赋值</td>
+</tr>
+<tr>
+<td align="center">%&#x3D;</td>
+<td align="center">求余赋值</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt;&#x3D;</td>
+<td align="center">左移赋值</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;&#x3D;</td>
+<td align="center">右移赋值</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;&gt;&#x3D;</td>
+<td align="center">无符号右移赋值</td>
+</tr>
+<tr>
+<td align="center">&amp;&#x3D;</td>
+<td align="center">按位与赋值</td>
+</tr>
+<tr>
+<td align="center">^&#x3D;</td>
+<td align="center">按位异或赋值</td>
+</tr>
+</tbody></table>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>单行注释：<code>//</code><br>多行注释：<code>/* */</code></p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>JavaScript变量可以保存两种类型的值：基本类型值和引用类型值。JavaScript有多种数据类型：数字、字符串、数组、对象等等。</p>
+<p>将在后面的章节中详细讲解数据类型。</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。</p>
+<p>引用一个函数&#x3D;调用函数 &#x3D;&gt; 执行函数内的代码。</p>
+<p>将在后面的章节中详细讲解函数。</p>
+<h2 id="字母大小写"><a href="#字母大小写" class="headerlink" title="字母大小写"></a>字母大小写</h2><p>JavaScript对大小写敏感，关键词、变量、函数名、对象名均区分大小写。</p>
+<h2 id="JavaScript字符集"><a href="#JavaScript字符集" class="headerlink" title="JavaScript字符集"></a>JavaScript字符集</h2><p>JavaScript使用Unicode字符集。意味着JavaScript支持多种语言，如中文、日文、韩文等等。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2022/12/04/JavaScript/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">← Next JavaScript数据类型</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2022/12/04/JavaScript/JavaScript%E7%AE%80%E4%BB%8B/">JavaScript简介 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"><div id="toc-div"><h1>INDEX</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">JavaScript语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">字面量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.3.1.</span> <span class="toc-text">算术操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">1.3.2.</span> <span class="toc-text">赋值操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.4.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">1.6.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-number">1.7.</span> <span class="toc-text">字母大小写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="toc-number">1.8.</span> <span class="toc-text">JavaScript字符集</span></a></li></ol></li></ol></div></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

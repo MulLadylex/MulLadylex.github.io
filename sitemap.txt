@@ -1,5 +1,11 @@
-http://lexlady.top/2023/03/12/ERC721/
+http://lexlady.top/2022/12/04/JavaScript/JavaScript%E5%AF%B9%E8%B1%A1/
+http://lexlady.top/2022/12/04/JavaScript/JavaScript%E8%AF%AD%E6%B3%95/
+http://lexlady.top/2022/12/04/JavaScript/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/
+http://lexlady.top/2022/12/04/JavaScript/JavaScript%E5%87%BD%E6%95%B0/
+http://lexlady.top/2022/12/04/JavaScript/JavaScript%E7%AE%80%E4%BB%8B/
 http://lexlady.top/2023/02/25/Ethernaut/Ether/
+http://lexlady.top/2023/03/12/ERC721/
+http://lexlady.top/2023/03/12/ERC20/
 http://lexlady.top/2023/11/15/Ethernaut/delegation/
 http://lexlady.top/2023/11/15/Ethernaut/token/
 http://lexlady.top/2023/11/15/Ethernaut/telephone/
@@ -8,7 +14,6 @@ http://lexlady.top/2023/11/15/Ethernaut/fallout/
 http://lexlady.top/2023/11/15/Ethernaut/fallback/
 http://lexlady.top/2023/11/13/VMware-ubuntu/
 http://lexlady.top/2023/03/12/ERC1155/
-http://lexlady.top/2023/03/12/ERC20/
 http://lexlady.top/2023/05/05/Golang/go_env/
 http://lexlady.top/categories/index.html
 http://lexlady.top/2023/05/05/Golang/go-BasicGrammer/
@@ -35,8 +40,10 @@ http://lexlady.top/tags/Remix/
 http://lexlady.top/tags/CapturetheEther/
 http://lexlady.top/tags/%E6%95%99%E7%A8%8B/
 http://lexlady.top/tags/ERC/
+http://lexlady.top/tags/JavaScript/
 http://lexlady.top/categories/%E9%9D%B6%E5%9C%BA/
 http://lexlady.top/categories/Spring-Boot/
 http://lexlady.top/categories/Golang/
 http://lexlady.top/categories/Ethereum/
 http://lexlady.top/categories/Ethernaut/
+http://lexlady.top/categories/%E6%95%99%E7%A8%8B/
