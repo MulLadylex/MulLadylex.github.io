@@ -1,3 +1,4 @@
+http://lexlady.top/2023/04/11/web3-js/
 http://lexlady.top/2022/12/04/JavaScript/JavaScript%E5%AF%B9%E8%B1%A1/
 http://lexlady.top/2022/12/04/JavaScript/JavaScript%E8%AF%AD%E6%B3%95/
 http://lexlady.top/2022/12/04/JavaScript/JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/
@@ -29,7 +30,6 @@ http://lexlady.top/2022/12/01/SprintBoot/SpringIoC/
 http://lexlady.top/2023/07/18/docker/docker/
 http://lexlady.top/2023/04/01/Capture-the-Ether/
 http://lexlady.top/2022/12/26/SprintBoot/SpringAOP/
-http://lexlady.top/2023/04/11/web3-js/
 http://lexlady.top/2023/04/08/temp/
 http://lexlady.top/2022/12/01/hello-world/
 http://lexlady.top/
