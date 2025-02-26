@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Go环境安装 | LexLady</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Go环境安装 | LexLady</title><script>var config = {"root":"/project/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
  startOnLoad: true
  , theme: 'dark'
-});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+});</script><link rel="stylesheet" href="/project/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
  font-family: BenderLight;
- src: local('Bender'), url("/font/BenderLight.ttf");
+ src: local('Bender'), url("/project/font/BenderLight.ttf");
 }
 @font-face {
  font-family: 'JetBrains Mono';
- src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
-}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LexLady" type="application/atom+xml">
-</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>Go环境安装</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-05-05T06:45:56.000Z" id="date"> 2023-05-05</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-08-14T08:55:56.427Z" id="updated"> 2023-08-14</time></div></span></div></div><hr><div id="post-content"><p>Go语言开发了适用于以下操作系统的编译器：</p>
+ src: local('JetBrains Mono'), url('/project/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/project/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/project/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/project/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>Go环境安装</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-05-05T06:45:56.000Z" id="date"> 2023-05-05</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-28T08:09:38.664Z" id="updated"> 2024-04-28</time></div></span></div></div><hr><div id="post-content"><p>Go语言开发了适用于以下操作系统的编译器：</p>
 <ul>
 <li>Linux</li>
 <li>FreeBSD</li>
@@ -22,6 +22,7 @@
 <ul>
 <li><code>$GOROOT</code>表示<code>Go</code>在你的电脑上的安装位置，它的值一般都是<code> $HOME/go</code>，当然，你也可以安装在别的地方。</li>
 <li><code>$GOPATH</code>默认采用和<code>$GOROOT</code>一样的值，但从<code>Go 1.1</code>版本开始，你必须修改为其它路径。它可以包含多个<code>Go</code>语言源码文件、包文件和可执行文件的路径，而这些路径下又必须分别包含三个规定的目录：<code>src、pkg 和 bin</code>，这三个目录分别用于存放源码文件、包文件和可执行文件。</li>
+<li><code>$GOBIN</code>表示<code>Go</code>可执行文件的安装位置，默认为<code>$GOPATH/bin</code>。</li>
 </ul>
 <p>接下来让我们继续安装吧：</p>
 <ul>
@@ -45,13 +46,22 @@
 <p> <code>sudo apt-get install bison ed gawk gcc libc6-dev make</code>（此处为Ubuntu的指令，你也可以需要将工具分开安装）</p>
 <p> 接着去官网或镜像网站下载Go的源码包到计算机中，然后将解压后的目录<code>go</code>通过命令移动到<code>$GOROOT</code>的位置。</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://storage.googleapis.com/golang/go&lt;VERSION&gt;.src.tar.gz<br>tar -zxvf go&lt;VERSION&gt;.src.tar.gz<br>sudo mv go $GOROOT<br></code></pre></td></tr></table></figure></li>
-<li><p>Mac</p>
-</li>
-<li><p>Windows</p>
+<li><p>Windows<br> 可以在!(<a target="_blank" rel="noopener" href="http://golang.org/dl/)[%E4%B8%8B%E8%BD%BD%E9%A1%B5%E9%9D%A2]%E4%B8%8B%E8%BD%BD%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85%E3%80%82">http://golang.org/dl/)[下载页面]下载一键安装包。</a></p>
 </li>
 </ul>
 </li>
 <li><p>安装</p>
+<ul>
+<li><p>linux</p>
+<p> 下载好源码后，进入源码文件夹中进行编译：<code>cd $GOROOT/src</code>，然后执行<code>./all.bash</code>。</p>
+<blockquote>
+<p>如果编译时出现报错：Building Go cmd&#x2F;dist using &#x2F;usr&#x2F;local&#x2F;go1.*<br> ERROR: Cannot find &#x2F;usr&#x2F;local&#x2F;go&#x2F;bin&#x2F;go1.*<br> set $GOROOT_BOOTSTRAP to a working Go tree &gt;&#x3D; go1.*<br>可能是因为 $GOROOT_BOOTSTRAP 变量没有设置。这个目录在安装 Go 1.5 版本及之后的版本时需要设置。</p>
+</blockquote>
+</li>
+<li><p>windows</p>
+<p>在完成安装包的安装后，只需要配置<code>$GOPATH</code>这一个环境变量就可以开始使用Go了。</p>
+</li>
+</ul>
 <p>你的<code>Go</code>安装目录 (<code>$GOROOT</code>) 的文件夹结构应该如下所示：</p>
 <p><code>README.md, AUTHORS, CONTRIBUTORS, LICENSE</code></p>
 <ul>
@@ -64,8 +74,6 @@
 <li><code>/src/cmd</code>：包含Go和C的编译器和命令行脚本</li>
 </ul>
 </li>
-<li><p>添加</p>
-</li>
 <li><p>安装测试</p>
 <p>在一个文件夹中新建test.go文件，</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>   fmt.Println(<span class="hljs-string">&quot;Hello, World!&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -73,8 +81,10 @@
 <p>还可以通过<code>go build</code>命令生成二进制文件</p>
 </li>
 <li><p>验证安装版本</p>
+<p>可以通过在终端输入<code>go version</code>来打印Go的版本信息。</p>
 </li>
 </ol>
-<p>可以通过在终端输入<code>go version</code>来打印Go的版本信息。</p>
+<blockquote>
 <p>在创建目录的时候，文件夹名称永远不应该包含空格，而应该使用下划线’_’或者其他一般符号代替。</p>
-<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2023/05/05/Golang/go-BasicGrammer/">← Next Go基础语法</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/04/28/Golang/Golang/">Golang Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"><div id="toc-div"><h1>INDEX</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a></li></ol></div></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
+</blockquote>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/project/2023/05/05/Golang/go-BasicGrammer/">← Next Go基础语法</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/project/2023/05/05/Golang/go-array/">Golang数组 Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/project/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"><div id="toc-div"><h1>INDEX</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a></li></ol></div></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/project/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
