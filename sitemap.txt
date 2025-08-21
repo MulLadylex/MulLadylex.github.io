@@ -1,5 +1,12 @@
-https://mulladylex.github.io/project/2025/07/15/WebSocket/
+https://mulladylex.github.io/project/2025/08/13/Golang/go-deploy/
+https://mulladylex.github.io/project/2025/08/07/Golang/go-gorm/
+https://mulladylex.github.io/project/2025/08/01/Golang/go-http/
+https://mulladylex.github.io/project/2025/08/01/Golang/go-context/
+https://mulladylex.github.io/project/categories/index.html
 https://mulladylex.github.io/project/2025/03/03/HelloGit/
+https://mulladylex.github.io/project/2025/07/29/vitePress/
+https://mulladylex.github.io/project/2025/07/27/internal-network-penetration/
+https://mulladylex.github.io/project/2025/07/15/WebSocket/
 https://mulladylex.github.io/project/2025/02/28/hexo/
 https://mulladylex.github.io/project/2025/02/19/Solidity/evm/
 https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/
@@ -39,7 +46,6 @@ https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/
 https://mulladylex.github.io/project/2023/11/15/Ethernaut/fallout/
 https://mulladylex.github.io/project/2023/11/15/Ethernaut/fallback/
 https://mulladylex.github.io/project/2023/03/12/eips/ERC1155/
-https://mulladylex.github.io/project/categories/index.html
 https://mulladylex.github.io/project/2023/05/27/Golang/go-loopStatement/
 https://mulladylex.github.io/project/2022/12/01/SprintBoot/SpringIoC/
 https://mulladylex.github.io/project/2023/07/18/docker/docker/
@@ -54,6 +60,7 @@ https://mulladylex.github.io/project/tags/CapturetheEther/
 https://mulladylex.github.io/project/tags/%E6%95%99%E7%A8%8B/
 https://mulladylex.github.io/project/tags/ERC/
 https://mulladylex.github.io/project/tags/JavaScript/
+https://mulladylex.github.io/project/tags/vite-vue/
 https://mulladylex.github.io/project/categories/%E9%9D%B6%E5%9C%BA/
 https://mulladylex.github.io/project/categories/Spring-Boot/
 https://mulladylex.github.io/project/categories/Golang/
