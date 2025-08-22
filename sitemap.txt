@@ -1,3 +1,6 @@
+https://mulladylex.github.io/project/2025/08/22/Golang/go-flag/
+https://mulladylex.github.io/project/2023/05/07/Golang/go-routine/
+https://mulladylex.github.io/project/2023/05/05/Golang/go-array/
 https://mulladylex.github.io/project/2025/08/13/Golang/go-deploy/
 https://mulladylex.github.io/project/2025/08/07/Golang/go-gorm/
 https://mulladylex.github.io/project/2025/08/01/Golang/go-http/
@@ -11,13 +14,11 @@ https://mulladylex.github.io/project/2025/02/28/hexo/
 https://mulladylex.github.io/project/2025/02/19/Solidity/evm/
 https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/
 https://mulladylex.github.io/project/2023/05/05/Solidity/storage_rule/
-https://mulladylex.github.io/project/2023/05/07/Golang/go-routine/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-interface/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-map/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-slice/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-structure/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-pointer/
-https://mulladylex.github.io/project/2023/05/05/Golang/go-array/
 https://mulladylex.github.io/project/2023/04/08/temp/
 https://mulladylex.github.io/project/2023/05/27/Golang/go-function/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-BasicGrammer/
@@ -68,3 +69,4 @@ https://mulladylex.github.io/project/categories/Ethereum/
 https://mulladylex.github.io/project/categories/Ethernaut/
 https://mulladylex.github.io/project/categories/%E6%95%99%E7%A8%8B/
 https://mulladylex.github.io/project/categories/solidity/
+https://mulladylex.github.io/project/categories/Golang/Data-Structure/

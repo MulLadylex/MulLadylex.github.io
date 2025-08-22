@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-08-13T12:52:48.017Z</updated>
+  <updated>2025-08-22T02:55:57.603Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>标准库——flag</title>
+    <link href="https://mulladylex.github.io/project/2025/08/22/Golang/go-flag/"/>
+    <id>https://mulladylex.github.io/project/2025/08/22/Golang/go-flag/</id>
+    <published>2025-08-22T02:51:22.000Z</published>
+    <updated>2025-08-22T02:55:57.603Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Go 语言的 flag 包提供了一个简单的命令行参数解析器。它支持定义标志（flags），解析命令行参数，并生成帮助信息。</p><h1 id><a href="#" class="headerlink" title></a></h1><p>flag库的基本使用</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><span class="hljs-keyword">import</span> (<br>    <span class="hljs-string">&quot;flag&quot;</span><br>    <span class="hljs-string">&quot;fmt&quot;</span><br>)<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    <span class="hljs-comment">// 定义命令行标志</span><br>    wordPtr := flag.String(<span class="hljs-string">&quot;word&quot;</span>, <span class="hljs-string">&quot;foo&quot;</span>, <span class="hljs-string">&quot;a string&quot;</span>)<br>    numbPtr := flag.Int(<span class="hljs-string">&quot;numb&quot;</span>, <span class="hljs-number">42</span>, <span class="hljs-string">&quot;an int&quot;</span>)<br>    boolPtr := flag.Bool(<span class="hljs-string">&quot;fork&quot;</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">&quot;a bool&quot;</span>)<br><br>    <span class="hljs-comment">// 自定义标志</span><br>    <span class="hljs-keyword">var</span> svar <span class="hljs-type">string</span><br>    flag.StringVar(&amp;svar, <span class="hljs-string">&quot;svar&quot;</span>, <span class="hljs-string">&quot;bar&quot;</span>, <span class="hljs-string">&quot;a string var&quot;</span>)<br><br>    <span class="hljs-comment">// 解析命令行标志</span><br>    flag.Parse()<br><br>    <span class="hljs-comment">// 输出标志的值</span><br>    fmt.Println(<span class="hljs-string">&quot;word:&quot;</span>, *wordPtr)<br>    fmt.Println(<span class="hljs-string">&quot;numb:&quot;</span>, *numbPtr)<br>    fmt.Println(<span class="hljs-string">&quot;fork:&quot;</span>, *boolPtr)<br>    fmt.Println(<span class="hljs-string">&quot;svar:&quot;</span>, svar)<br>    fmt.Println(<span class="hljs-string">&quot;tail:&quot;</span>, flag.Args())<br>&#125;<br></code></pre></td></tr></table></figure><p>不设置某个选项，相应变量会取默认值。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h1&gt;&lt;p&gt;Go 语言的 flag 包提供了一个简单的命令行参数解析器。它支持定义标志（flags），解</summary>
+      
+    
+    
+    
+    <category term="Golang" scheme="https://mulladylex.github.io/project/categories/Golang/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>GO项目部署</title>
@@ -459,29 +481,6 @@
       
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>并发</title>
-    <link href="https://mulladylex.github.io/project/2023/05/27/Golang/go-complicated/"/>
-    <id>https://mulladylex.github.io/project/2023/05/27/Golang/go-complicated/</id>
-    <published>2023-05-27T07:26:22.000Z</published>
-    <updated>2024-04-09T14:26:25.264Z</updated>
-    
-    <content type="html"><![CDATA[<!-- TODO：并发教程 --><h1 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h1><p><code>Go</code>语言支持并发，我们只需要通过<code>go</code>关键字来开启<code>goroutine</code>即可。</p><p><code>goroutine</code>是轻量级线程，<code>goroutine</code>的调度是由<code>Golang</code>运行时进行管理的。</p><p>语法：<code>go 函数名()</code>开启一个新的<code>goroutine</code></p><p>同一个程序中的所有<code>goroutine</code>共享同一个地址空间。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- TODO：并发教程 --&gt;
-&lt;h1 id=&quot;并发&quot;&gt;&lt;a href=&quot;#并发&quot; class=&quot;headerlink&quot; title=&quot;并发&quot;&gt;&lt;/a&gt;并发&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Go&lt;/code&gt;语言支持并发，我们只需要通过&lt;code&gt;go&lt;/code&gt;关键字来开启&lt;</summary>
-      
-    
-    
-    
-    <category term="Golang" scheme="https://mulladylex.github.io/project/categories/Golang/"/>
     
     
   </entry>
