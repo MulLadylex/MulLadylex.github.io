@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>shell | LexLady</title><script>var config = {"root":"/project/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link rel="stylesheet" href="/project/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/project/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/project/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/project/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/project/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/project/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>shell</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2025-08-24T02:30:22.000Z" id="date"> 2025-08-24</time></div></span><br><span>Last Update: <div class="control"><time datetime="2025-08-24T02:39:04.531Z" id="updated"> 2025-08-24</time></div></span></div></div><hr><div id="post-content"><p>shell 脚本的学习与记录</p>
+<p><strong>脚本开头</strong>通常需要指定解释器路径，例如：</p>
+<p>常见的写法还有<code>#!/usr/bin/env bash</code>，这种写法可以在不同系统中更灵活地找到bash解释器的位置。</p>
+<p>函数里<code>$1 `` $2</code>… 获取参数，<code>$@</code>获取所有参数。</p>
+<p>彩色输出常量：</p>
+<p>\033 表示 ANSI 转义序列，用于在终端里控制颜色。</p>
+<p>0;31m → 红色<br>0;32m → 绿色<br>0;33m → 黄色</p>
+<p>NC&#x3D;’\033[0m’ 用来重置颜色，避免后续输出都带颜色。</p>
+<p>常见扩展：蓝色 0;34m，紫色 0;35m，青色 0;36m。</p>
+<p><code>&gt;&amp;2</code>表示输出到**标准错误流 (stderr)**，方便脚本中区分错误和正常输出。</p>
+<p>脚本示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--- 彩色输出常量 ---</span><br>RED=&#x27;\033[0;31m&#x27;<br>GREEN=&#x27;\033[0;32m&#x27;<br>YELLOW=&#x27;\033[0;33m&#x27;<br>NC=&#x27;\033[0m&#x27; # No Color<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">--- 日志函数 ---</span><br>log_info() &#123;<br>    echo -e &quot;$&#123;GREEN&#125;[INFO] $(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;) ==&gt; $1$&#123;NC&#125;&quot;<br>&#125;<br><br>log_warn() &#123;<br>    echo -e &quot;$&#123;YELLOW&#125;[WARNING] $(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;) ==&gt; $1$&#123;NC&#125;&quot;<br>&#125;<br><br>log_error() &#123;<br>    echo -e &quot;$&#123;RED&#125;[ERROR] $(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;) ==&gt; $1$&#123;NC&#125;&quot; &gt;&amp;2<br>&#125;<br></code></pre></td></tr></table></figure><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/project/2025/08/22/Golang/go-flag/">标准库——flag Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/project/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/project/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>

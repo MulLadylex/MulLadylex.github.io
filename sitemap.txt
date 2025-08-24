@@ -1,3 +1,4 @@
+https://mulladylex.github.io/project/2025/08/24/shell/
 https://mulladylex.github.io/project/2025/08/22/Golang/go-flag/
 https://mulladylex.github.io/project/2023/05/07/Golang/go-routine/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-array/
