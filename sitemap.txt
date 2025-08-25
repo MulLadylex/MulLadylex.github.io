@@ -1,3 +1,5 @@
+https://mulladylex.github.io/project/2023/04/28/Golang/Golang/
+https://mulladylex.github.io/project/2025/08/25/Golang/go-layout/
 https://mulladylex.github.io/project/2025/08/24/shell/
 https://mulladylex.github.io/project/2025/08/22/Golang/go-flag/
 https://mulladylex.github.io/project/2023/05/07/Golang/go-routine/
@@ -24,7 +26,6 @@ https://mulladylex.github.io/project/2023/04/08/temp/
 https://mulladylex.github.io/project/2023/05/27/Golang/go-function/
 https://mulladylex.github.io/project/2023/05/05/Golang/go-BasicGrammer/
 https://mulladylex.github.io/project/2023/05/05/Golang/go_env/
-https://mulladylex.github.io/project/2023/04/28/Golang/Golang/
 https://mulladylex.github.io/project/2023/05/27/Golang/go-error/
 https://mulladylex.github.io/project/2023/05/07/Golang/go-dataStructure/
 https://mulladylex.github.io/project/2023/05/25/Golang/go-variable/

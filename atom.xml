@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-08-24T02:39:04.531Z</updated>
+  <updated>2025-08-24T03:11:18.362Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Golang 项目布局</title>
+    <link href="https://mulladylex.github.io/project/2025/08/25/Golang/go-layout/"/>
+    <id>https://mulladylex.github.io/project/2025/08/25/Golang/go-layout/</id>
+    <published>2025-08-25T06:45:56.000Z</published>
+    <updated>2025-08-24T03:11:18.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Golang-项目布局"><a href="#Golang-项目布局" class="headerlink" title="Golang 项目布局"></a>Golang 项目布局</h1><p>在 Go 语言中，项目布局（Project Layout）是指如何组织和结构化代码文件和目录，以便于开发、维护和协作。一个良好的项目布局可以提高代码的可读性、可维护性和可扩展性。</p><h2 id="常见的项目布局结构"><a href="#常见的项目布局结构" class="headerlink" title="常见的项目布局结构"></a>常见的项目布局结构</h2><p>以下是一个常见的 Go 项目布局结构示例：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">myproject/<br>├── cmd/                # 主应用程序目录<br>│   └── myapp/         # 每个子目录对应一个可执行文件<br>│       └── main.go    # 主程序入口<br>├── pkg/                # 可重用的库代码<br>│   └── mylib/        # 每个子目录对应一个库<br>│       └── mylib.go   # 库代码<br>├── internal/          # 私有库代码，不能被外部使用<br>│   └── myinternal/   # 每个子目录对应一个私有库<br>│       └── myinternal.go # 私有库代码<br>├── api/                # API 定义和协议文件<br>│   └── v1/           # 版本化的 API<br>│       └── api.proto  # API 协议文件<br>├── web/                # Web 相关文件（HTML、CSS、JS）<br>│   └── static/       # 静态资源<br>│       └── style.css  # 样式文件<br>├── configs/           # 配置文件<br>│   └── config.yaml   # 配置文件<br>├── scripts/           # 构建和部署脚本<br>│   └── build.sh      # 构建脚本<br>├── test/              # 测试代码<br>│   └── myapp_test.go # 测试文件<br>├── go.mod             # Go 模块文件<br>├── go.sum             # Go 模块校验文件<br>└── README.md         # 项目说明文件<br></code></pre></td></tr></table></figure><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul><li><code>cmd/</code> 目录包含主应用程序的代码，每个子目录对应一个可执行文件。</li><li><code>pkg/</code> 目录包含可重用的库代码，可以被其他项目导入使用。</li><li><code>internal/</code> 目录包含私有库代码，这些代码只能在当前项目中使用，不能被外部项目导入。</li><li><code>api/</code> 目录包含 API 定义和协议文件，通常用于定义服务的接口。</li><li><code>web/</code> 目录包含与 Web 相关的文件，如 HTML、CSS 和 JavaScript。</li><li><code>configs/</code> 目录包含配置文件，用于存储应用程序的配 置参数。</li><li><code>scripts/</code> 目录包含构建和部署脚本，帮助自动化项目的构建和部署过程。</li><li><code>test/</code> 目录包含测试代码，用于验证应用程序的功能和性能。</li><li><code>go.mod</code> 和 <code>go.sum</code> 文件用于管理 Go 模块和依赖。</li><li><code>README.md</code> 文件用于提供项目的说明和文档。</li></ul><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><h1 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h1><ul><li><a href="https://blog.kennycoder.io/2022/08/20/Golang-%E8%AB%87%E8%AB%87-project-layout/">https://blog.kennycoder.io/2022/08/20/Golang-%E8%AB%87%E8%AB%87-project-layout/</a></li><li></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Golang-项目布局&quot;&gt;&lt;a href=&quot;#Golang-项目布局&quot; class=&quot;headerlink&quot; title=&quot;Golang 项目布局&quot;&gt;&lt;/a&gt;Golang 项目布局&lt;/h1&gt;&lt;p&gt;在 Go 语言中，项目布局（Project Layout）是指如何组</summary>
+      
+    
+    
+    
+    <category term="Golang" scheme="https://mulladylex.github.io/project/categories/Golang/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>shell</title>
@@ -459,31 +481,6 @@
     <category term="题解" scheme="https://mulladylex.github.io/project/tags/%E9%A2%98%E8%A7%A3/"/>
     
     <category term="Ethereum" scheme="https://mulladylex.github.io/project/tags/Ethereum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VMware_ubuntu</title>
-    <link href="https://mulladylex.github.io/project/2023/11/13/VMware-ubuntu/"/>
-    <id>https://mulladylex.github.io/project/2023/11/13/VMware-ubuntu/</id>
-    <published>2023-11-13T08:44:44.000Z</published>
-    <updated>2024-04-09T14:17:11.156Z</updated>
-    
-    <content type="html"><![CDATA[<!-- TODO：VMware使用Ubuntu配置  --><p>操作环境：<br>VMware：<br>Ubuntu：20.04</p><p>常用命令：</p><p>遇见的坑：</p><p>Golang安装：</p><p>在安装Golang语言的时候，通过执行下面命令后会默认安装最新版本。</p><p><code>sudo add-apt-repository ppa:longsleep/golang-backports</code></p><p><code>sudo apt updata</code></p><p><code>sudo apt install golang-go</code></p><p>安装完成后，要设置GOROOT、GOPATH等环境变量，使用</p><p><code>sudo vi ~/.profile</code></p><p>编辑以下内容：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">export GOROOT=&quot;/usr/lib/go&quot;<br>export GOBIN=$GOROOT/bin<br>export GOPATH=<br>export GO111MODULE=auto<br>export PATH=$PATH:$GOPATH/bin<br></code></pre></td></tr></table></figure><p>修改完成后使用</p><p><code>source ~/.profile</code></p><p>进行重新生效。此时可以通过<code>go version</code>或<code>$GOROOT</code>命令进行验证是否安装成功。</p><p>而博主要使用某个低版本的Golang语言，采用了apt search后进行apt install正常安装完成后。</p><p>在修改完环境变量后仍然显示</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;!-- TODO：VMware使用Ubuntu配置  --&gt;
-&lt;p&gt;操作环境：&lt;br&gt;VMware：&lt;br&gt;Ubuntu：20.04&lt;/p&gt;
-&lt;p&gt;常用命令：&lt;/p&gt;
-&lt;p&gt;遇见的坑：&lt;/p&gt;
-&lt;p&gt;Golang安装：&lt;/p&gt;
-&lt;p&gt;在安装Golang语言的时候，通过执行下面命</summary>
-      
-    
-    
-    
     
   </entry>
   
