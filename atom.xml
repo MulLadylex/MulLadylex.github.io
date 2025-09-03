@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-02T08:59:21.254Z</updated>
+  <updated>2025-09-03T03:24:17.142Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker_proxy</title>
+    <link href="https://mulladylex.github.io/project/2025/09/03/docker-proxy/"/>
+    <id>https://mulladylex.github.io/project/2025/09/03/docker-proxy/</id>
+    <published>2025-09-03T03:14:26.000Z</published>
+    <updated>2025-09-03T03:24:17.142Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker-代理配置"><a href="#Docker-代理配置" class="headerlink" title="Docker 代理配置"></a>Docker 代理配置</h1><p>首先，确保你处于代理环境中，这通常需要设置HTTP和HTTPS代理。请先检查你的代理配置是否能正常访问。</p><h2 id="1-配置-Docker-使用代理"><a href="#1-配置-Docker-使用代理" class="headerlink" title="1. 配置 Docker 使用代理"></a>1. 配置 Docker 使用代理</h2><p>需要在Docker的系统服务配置中进行编辑，在<code>/etc/systemd/system/docker.service.d/http-proxy.conf</code>中添加以下内容：</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;HTTP_PROXY=http://&lt;proxy_address&gt;:&lt;proxy_port&gt;&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;HTTPS_PROXY=http://&lt;proxy_address&gt;:&lt;proxy_port&gt;&quot;</span><br><span class="hljs-attr">Environment</span>=<span class="hljs-string">&quot;NO_PROXY=localhost,127.0.0.1,.mycompany.com&quot;</span><br></code></pre></td></tr></table></figure><p>将<code>&lt;proxy_addreess&gt;</code>和<code>&lt;proxy_port&gt;</code>替换成你实际使用的代理地址和端口。</p><blockquote><p>一般情况下，如果你没有显式地为Docker配置代理或其他自定义设置，<code>docker.service.d</code>目录默认是不存在的。</p></blockquote><h2 id="2-重新加载并重启docker-服务："><a href="#2-重新加载并重启docker-服务：" class="headerlink" title="2. 重新加载并重启docker 服务："></a>2. 重新加载并重启docker 服务：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure><h2 id="3-验证配置是否生效："><a href="#3-验证配置是否生效：" class="headerlink" title="3. 验证配置是否生效："></a>3. 验证配置是否生效：</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker info<br></code></pre></td></tr></table></figure><p>在输出的<code>System</code>部分，可以看到 Docker 是否使用了你配置的代理。</p><blockquote><p>如果代理或网络连接较慢，可以尝试增加Docker的超时时间：<br>在<code>/etc/docker/daemon.json</code>中添加以下内容：<br><code>&#123; &quot;default-timeout&quot;: 600 &#125;</code><br>然后重启Docker</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Docker-代理配置&quot;&gt;&lt;a href=&quot;#Docker-代理配置&quot; class=&quot;headerlink&quot; title=&quot;Docker 代理配置&quot;&gt;&lt;/a&gt;Docker 代理配置&lt;/h1&gt;&lt;p&gt;首先，确保你处于代理环境中，这通常需要设置HTTP和HTTPS代理。</summary>
+      
+    
+    
+    
+    <category term="Docker" scheme="https://mulladylex.github.io/project/categories/Docker/"/>
+    
+    
+    <category term="docker" scheme="https://mulladylex.github.io/project/tags/docker/"/>
+    
+    <category term="http-proxy" scheme="https://mulladylex.github.io/project/tags/http-proxy/"/>
+    
+    <category term="https-proxy" scheme="https://mulladylex.github.io/project/tags/https-proxy/"/>
+    
+    <category term="代理配置" scheme="https://mulladylex.github.io/project/tags/%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/"/>
+    
+    <category term="linux" scheme="https://mulladylex.github.io/project/tags/linux/"/>
+    
+    <category term="docker配置" scheme="https://mulladylex.github.io/project/tags/docker%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>linux</title>
@@ -435,34 +469,6 @@
     <summary type="html">&lt;p&gt;任务要求：获取合约的所有权  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
 &lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line</summary>
-      
-    
-    
-    
-    <category term="Ethernaut" scheme="https://mulladylex.github.io/project/categories/Ethernaut/"/>
-    
-    
-    <category term="题解" scheme="https://mulladylex.github.io/project/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-    <category term="Ethereum" scheme="https://mulladylex.github.io/project/tags/Ethereum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Token</title>
-    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/token/"/>
-    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/token/</id>
-    <published>2023-11-15T12:44:02.000Z</published>
-    <updated>2024-04-09T14:28:39.082Z</updated>
-    
-    <content type="html"><![CDATA[<p>任务要求：获取更多的Token  </p><p><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.6.0;<br><br>contract Token &#123;<br><br>  mapping(address =&gt; uint) balances;<br>  uint public totalSupply;<br><br>  constructor(uint _initialSupply) public &#123;<br>    balances[msg.sender] = totalSupply = _initialSupply;<br>  &#125;<br><br>  function transfer(address _to, uint _value) public returns (bool) &#123;<br>    require(balances[msg.sender] - _value &gt;= 0);<br>    balances[msg.sender] -= _value;<br>    balances[_to] += _value;<br>    return true;<br>  &#125;<br><br>  function balanceOf(address _owner) public view returns (uint balance) &#123;<br>    return balances[_owner];<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs s">function transfer(address _to, uint _value) public returns (bool) &#123;<br>    require(balances[msg.sender] - _value &gt;= 0);<br>    balances[msg.sender] -= _value;<br>    balances[_to] += _value;<br>    return true;<br>  &#125;<br></code></pre></td></tr></table></figure><p>这里可以通过<em>下溢</em> 绕过require检测，因为<code>_value</code>和<code>balances[address]</code>都为无符号整数，所以结果会变为2^256-1</p><p>参考：略</p><blockquote><p>solidity的0.6版本还没内置溢出检测，而在0.8及以后版本中当发生溢出后会进行<code>revert()</code>。</p></blockquote><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;任务要求：获取更多的Token  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;li</summary>
       
     
     
