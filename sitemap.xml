@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mulladylex.github.io/project/2025/09/10/ssh/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mulladylex.github.io/project/2025/09/02/linux/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mulladylex.github.io/project/2025/09/08/rust/</loc>
     
     <lastmod>2025-09-08</lastmod>
@@ -66,15 +84,6 @@
   
   <url>
     <loc>https://mulladylex.github.io/project/2025/07/15/WebSocket/</loc>
-    
-    <lastmod>2025-09-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mulladylex.github.io/project/2025/09/02/linux/</loc>
     
     <lastmod>2025-09-02</lastmod>
     

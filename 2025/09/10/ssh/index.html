@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ssh | LexLady</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>ssh</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2025-09-10T04:15:01.000Z" id="date"> 2025-09-10</time></div></span><br><span>Last Update: <div class="control"><time datetime="2025-09-10T04:30:48.187Z" id="updated"> 2025-09-10</time></div></span></div></div><hr><div id="post-content"><h2 id="1-SSH的基本概念"><a href="#1-SSH的基本概念" class="headerlink" title="1. SSH的基本概念"></a>1. SSH的基本概念</h2><h3 id="1-1-公钥和私钥"><a href="#1-1-公钥和私钥" class="headerlink" title="1.1 公钥和私钥"></a>1.1 公钥和私钥</h3><p>SSH 使用公钥加密技术来实现安全认证。每个用户都有一对密钥：公钥和私钥。公钥可以公开分享，而私钥必须保密。<br>当用户尝试连接到远程服务器时，服务器会使用用户的公钥来验证用户的身份。如果验证成功，用户就可以访问服务器。</p>
+<h3 id="1-2-SSH协议"><a href="#1-2-SSH协议" class="headerlink" title="1.2 SSH协议"></a>1.2 SSH协议</h3><p>SSH 协议有两个主要版本：SSH-1 和 SSH-2。SSH-2 是当前的标准版本，提供了更强的安全性和功能。</p>
+<h3 id="1-3-SSH客户端和服务器"><a href="#1-3-SSH客户端和服务器" class="headerlink" title="1.3 SSH客户端和服务器"></a>1.3 SSH客户端和服务器</h3><p>SSH 由两个主要组件组成：SSH 客户端和 SSH 服务器。SSH 客户端用于发起连接，而 SSH 服务器则在远程<br>服务器上运行，等待客户端的连接请求。</p>
+<h2 id="2-SSH的安装与配置"><a href="#2-SSH的安装与配置" class="headerlink" title="2. SSH的安装与配置"></a>2. SSH的安装与配置</h2><p>在大多数 Linux 发行版中，SSH 客户端通常预装。当你尝试通过ssh命令连接到远程服务器时，如果出现<code>Connection refused</code>的情况，说明客户端能找到服务器，但服务器没有运行SSH服务。这时就需要检测服务器端的SSH服务是否安装并启动了。</p>
+<blockquote>
+<p>当然，第一步是要确认<strong>IP地址正确</strong>噢！！！</p>
+</blockquote>
+<p><code>sudo systemctl status ssh</code></p>
+<p>如果显示 inactive(dead) 或者 not found ，说明服务未启动或未安装。</p>
+<blockquote>
+<p>解决方式：<br><code>sudo apt update</code><br><code>sudo apt install openssh-server -y</code><br><code>sudo systemctl enable ssh</code><br><code>sudo systemctl start ssh</code></p>
+</blockquote>
+<p>如果服务启用中，那么需要检测防火墙设置和ssh端口设置：</p>
+<ol>
+<li><p>防火墙是否拦截：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw status<br></code></pre></td></tr></table></figure>
+<p>如果看到<code> 22/tcp DENY</code>，说明防火墙拦截了22端口，需要放行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 22/tcp<br>sudo ufw reload<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ssh端口是否被修改：<br>如果服务器中的sshd配置修改过，需要查看<code>/etc/ssh/sshd_config</code>文件中的Port配置项，确认端口号。</p>
+</li>
+</ol>
+<p>如果没有，可以使用包管理器安装。例如，在 Debian&#x2F;Ubuntu 上，可以使用以下命令安装 OpenSSH 客户端：</p>
+<h3 id="2-1-安装SSH"><a href="#2-1-安装SSH" class="headerlink" title="2.1 安装SSH"></a>2.1 安装SSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install openssh-client<br></code></pre></td></tr></table></figure>
+<p>要安装 SSH 服务器，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install openssh-server<br></code></pre></td></tr></table></figure>
+<h3 id="2-2-配置SSH"><a href="#2-2-配置SSH" class="headerlink" title="2.2 配置SSH"></a>2.2 配置SSH</h3><p>SSH 服务器的配置文件通常位于 <code>/etc/ssh/sshd_config</code>。<br>可以使用文本编辑器（如 <code>nano</code> 或 <code>vim</code>）编辑该文件。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo nano /etc/ssh/sshd_config<br></code></pre></td></tr></table></figure>
+<p>常见的配置选项包括：</p>
+<ul>
+<li>Port：指定 SSH 服务器监听的端口，默认是 22。</li>
+<li>PermitRootLogin：控制是否允许 root 用户通过 SSH 登录。</li>
+<li>PasswordAuthentication：启用或禁用基于密码的认证。</li>
+<li>PubkeyAuthentication：启用或禁用基于公钥的认证。</li>
+<li>AllowUsers：指定允许通过 SSH 登录的用户列表。</li>
+<li>MaxAuthTries：设置允许的最大认证尝试次数。</li>
+<li>ClientAliveInterval 和 ClientAliveCountMax：配置客户端保持连接的心跳机制。</li>
+<li>LogLevel：设置日志记录的详细程度。</li>
+<li>Banner：指定登录时显示的欢迎信息文件路径。</li>
+</ul>
+<p>编辑完成后，保存文件并重启 SSH 服务以应用更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl restart ssh<br></code></pre></td></tr></table></figure>
+<h2 id="3-使用SSH进行远程连接"><a href="#3-使用SSH进行远程连接" class="headerlink" title="3. 使用SSH进行远程连接"></a>3. 使用SSH进行远程连接</h2><h3 id="3-1-基本连接"><a href="#3-1-基本连接" class="headerlink" title="3.1 基本连接"></a>3.1 基本连接</h3><p>要使用 SSH 连接到远程服务器，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh username@hostname<br></code></pre></td></tr></table></figure>
+<p>其中，<code>username</code> 是远程服务器上的用户名，<code>hostname</code> 是服务器的 IP 地址或域名。<br>如果需要指定端口，可以使用 <code>-p</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -p port_number username@hostname<br></code></pre></td></tr></table></figure>
+<p>连接时，系统会提示输入密码。如果是第一次连接，系统会询问是否信任该主机，输入 <code>yes</code> 以继续。</p>
+<h3 id="3-2-使用密钥认证"><a href="#3-2-使用密钥认证" class="headerlink" title="3.2 使用密钥认证"></a>3.2 使用密钥认证</h3><p>常见问题：</p>
+<p>SSH 无法通过 22 端口连接到 GitHub</p>
+<p>通常是由于网络环境限制：国内网络访问端口被阻断；所在网络环境屏蔽端口等</p>
+<p>GitHub 提供了一个专门的 <strong>443</strong> 端口（一个HTTPS伪装的SSH），可以绕过网络屏蔽。</p>
+<p>你可以通过执行<code>ssh -T -p 443 git@github.com</code>验证是否是网络问题导致。</p>
+<p>如果成功，会提示：<br><code>Hi &lt;username&gt;! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p>因此最好的解决办法就是配置 <code>.ssh/config</code> 文件，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">Host github.com<br>  HostName ssh.github.com<br>  Port 443<br>  User git<br></code></pre></td></tr></table></figure>
+<p>这样的话每当你使用 ssh 命令时就会自动走指定的端口。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2025/09/08/rust/">rust Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"><div id="toc-div"><h1>INDEX</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SSH%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">1. SSH的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 公钥和私钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-SSH%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 SSH协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-SSH%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 SSH客户端和服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SSH%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2. SSH的安装与配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85SSH"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AESSH"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 配置SSH</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8SSH%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">3. 使用SSH进行远程连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%9F%BA%E6%9C%AC%E8%BF%9E%E6%8E%A5"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 基本连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BD%BF%E7%94%A8%E5%AF%86%E9%92%A5%E8%AE%A4%E8%AF%81"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 使用密钥认证</span></a></li></ol></li></ol></div></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
