@@ -2,6 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mulladylex.github.io/project/2023/05/27/Golang/go-complicated/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mulladylex.github.io/project/2025/09/05/Golang/pkg-http/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mulladylex.github.io/project/2025/09/10/Golang/go-context/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mulladylex.github.io/project/2025/07/15/WebSocket/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mulladylex.github.io/project/2023/05/05/Golang/go-BasicGrammer/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://mulladylex.github.io/project/2023/04/08/temp/</loc>
+    
+    <lastmod>2025-09-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://mulladylex.github.io/project/2025/09/02/linux/</loc>
     
     <lastmod>2025-09-10</lastmod>
@@ -23,15 +77,6 @@
     <loc>https://mulladylex.github.io/project/2025/09/08/rust/</loc>
     
     <lastmod>2025-09-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mulladylex.github.io/project/2023/04/08/temp/</loc>
-    
-    <lastmod>2025-09-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -77,15 +122,6 @@
     <loc>https://mulladylex.github.io/project/2023/05/05/Golang/go-array/</loc>
     
     <lastmod>2025-09-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mulladylex.github.io/project/2025/07/15/WebSocket/</loc>
-    
-    <lastmod>2025-09-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -140,24 +176,6 @@
     <loc>https://mulladylex.github.io/project/2025/08/07/Golang/go-gorm/</loc>
     
     <lastmod>2025-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mulladylex.github.io/project/2025/08/01/Golang/go-http/</loc>
-    
-    <lastmod>2025-08-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mulladylex.github.io/project/2025/08/01/Golang/go-context/</loc>
-    
-    <lastmod>2025-08-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -281,15 +299,6 @@
   </url>
   
   <url>
-    <loc>https://mulladylex.github.io/project/2023/05/05/Golang/go-BasicGrammer/</loc>
-    
-    <lastmod>2024-05-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://mulladylex.github.io/project/2023/05/05/Golang/go_env/</loc>
     
     <lastmod>2024-04-28</lastmod>
@@ -336,15 +345,6 @@
   
   <url>
     <loc>https://mulladylex.github.io/project/2023/11/15/Ethernaut/token/</loc>
-    
-    <lastmod>2024-04-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://mulladylex.github.io/project/2023/05/27/Golang/go-complicated/</loc>
     
     <lastmod>2024-04-09</lastmod>
     
