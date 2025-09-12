@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-11T15:12:01.221Z</updated>
+  <updated>2025-09-12T15:32:11.510Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://mulladylex.github.io/project/2025/09/11/windows-share/"/>
     <id>https://mulladylex.github.io/project/2025/09/11/windows-share/</id>
     <published>2025-09-11T14:53:02.000Z</published>
-    <updated>2025-09-11T15:12:01.221Z</updated>
+    <updated>2025-09-12T15:32:11.510Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="局域网下的文件传输"><a href="#局域网下的文件传输" class="headerlink" title="局域网下的文件传输"></a>局域网下的文件传输</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>局域网内两台电脑传输文件使用windows自带的文件共享机制即可，不需要找专门的文件传输软件，下面来介绍使用方法。</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li><p>在 Windows 网络与Internet 设置中，开启网络发现。</p><blockquote><p>具体可能位于网络和共享中心的高级共享设置</p></blockquote></li><li><p>更改网络配置如下：<br>所有网络中的文件共享连接为：使用128位加密帮助保护文件共享链接</p><p>密码保护的共享：无密码保护的共享</p></li><li><p>设置共享文件夹<br>在文件夹属性中开启共享，并在网络访问中添加 Everyone 用户。</p><p>同时在高级共享中，勾选共享此文件夹并应用确定。</p></li><li><p>在其他电脑上访问自己的文件夹，通常通过<code>\\IP</code>来实现<br>如此就可以正常访问你设置的共享文件夹了。</p></li></ol><p>常见问题：<br>进行链接访问时，如果出现连接失败的情况，可以检查一下Microsoft网络客户端是否开启，如果未开启，则需开启它。</p><p>位于当前连接网络的网络属性中的网络选项下。</p><p>当然你可以为自己设计一个用户并且为分享的文件夹设置针对用户的读写权限。这样就会更安全，</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="局域网下的文件传输"><a href="#局域网下的文件传输" class="headerlink" title="局域网下的文件传输"></a>局域网下的文件传输</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>局域网内两台电脑传输文件使用windows自带的文件共享机制即可，不需要找专门的文件传输软件，下面来介绍使用方法。</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li><p>在 Windows 网络与Internet 设置中，开启网络发现。</p><blockquote><p>具体可能位于网络和共享中心的高级共享设置</p></blockquote></li><li><p>更改网络配置如下：<br>所有网络中的文件共享连接为：使用128位加密帮助保护文件共享链接</p><p>密码保护的共享：无密码保护的共享</p></li><li><p>设置共享文件夹<br>在文件夹属性中开启共享，并在网络访问中添加 Everyone 用户。</p><p>同时在高级共享中，勾选共享此文件夹并应用确定。</p></li><li><p>在其他电脑上访问自己的文件夹，通常通过<code>\\IP</code>来实现<br>如此就可以正常访问你设置的共享文件夹了。</p></li></ol><blockquote><p>常见问题：</p><blockquote><p>进行链接访问时，如果出现连接失败的情况，可以检查一下Microsoft网络客户端是否开启，如果未开启，则需开启它。</p><p>位于当前连接网络的网络属性中的网络选项下。</p><p>当然你可以为自己设计一个用户并且为分享的文件夹设置针对用户的读写权限。这样就会更安全。</p></blockquote><blockquote><p>如果出现权限不够的问题，首先排查文件夹对用户的读写权限，确认放开后，再检查高级共享设置中对共享文件夹的设置。</p></blockquote></blockquote>]]></content>
     
     
       
