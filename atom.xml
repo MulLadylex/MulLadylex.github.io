@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-12T15:32:11.510Z</updated>
+  <updated>2025-09-15T17:00:58.195Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Systemed Service</title>
+    <link href="https://mulladylex.github.io/project/2025/09/16/systemed-Service/"/>
+    <id>https://mulladylex.github.io/project/2025/09/16/systemed-Service/</id>
+    <published>2025-09-15T16:52:40.000Z</published>
+    <updated>2025-09-15T17:00:58.195Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用-systemd-管理自定义服务"><a href="#使用-systemd-管理自定义服务" class="headerlink" title="使用 systemd 管理自定义服务"></a>使用 systemd 管理自定义服务</h1><p>本文介绍如何在 <strong>systemd</strong> 下创建并管理自定义服务（以 myapp 为例）。</p><h2 id="systemd-的优势"><a href="#systemd-的优势" class="headerlink" title="systemd 的优势"></a>systemd 的优势</h2><p>在 service 文件里只需写 <strong>前台运行</strong> 的命令，systemd 会自动完成：</p><ul><li>后台守护（无需自己写<code>&amp;</code>或<code>nohup</code>）；</li><li>管理标准输出&#x2F;错误输出（日志可通过<code>journalctl</code>查看）；</li><li>自动重启（通过<code>Restart=always</code>）；</li><li>创建 PID 并跟踪进程状态。</li></ul><h2 id="新建-Service-文件"><a href="#新建-Service-文件" class="headerlink" title="新建 Service 文件"></a>新建 Service 文件</h2><p>在<code>/etc/systemd/system/</code>目录下新建<code>myapp.service</code>文件：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs shell">[Unit]<br>Description=MyApp Service<br>After=network.target<br><br>[Service]<br><span class="hljs-meta prompt_"># </span><span class="language-bash">运行用户和用户组（可选）</span><br>User=myuser<br>Group=myuser<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">程序启动命令</span><br>ExecStart=/usr/bin/java -jar /opt/myapp/myapp.jar<br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果是可执行文件（如 /opt/myapp/myapp），直接写完整路径即可</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果有多个环境变量，可集中写入文件</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">EnvironmentFile=/etc/myapp.env</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">工作目录（可选）</span><br>WorkingDirectory=/opt/myapp<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">进程退出后的重启策略</span><br>Restart=always<br>RestartSec=5<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">单个环境变量（可选）</span><br>Environment=SPRING_PROFILES_ACTIVE=prod<br><br>[Install]<br>WantedBy=multi-user.target<br></code></pre></td></tr></table></figure><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>保存退出后，执行以下步骤：</p><h3 id="重新加载-systemd-配置"><a href="#重新加载-systemd-配置" class="headerlink" title="重新加载 systemd 配置"></a>重新加载 systemd 配置</h3><p><code>sudo systemctl daemon-reload</code></p><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p><code>sudo systemctl start myapp.service</code></p><h3 id="设置开机自启"><a href="#设置开机自启" class="headerlink" title="设置开机自启"></a>设置开机自启</h3><p><code>sudo systemctl enable myapp.service</code></p><h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><p><code>systemctl status myapp.service</code></p><h3 id="停止-重启服务"><a href="#停止-重启服务" class="headerlink" title="停止&#x2F;重启服务"></a>停止&#x2F;重启服务</h3><p><code>sudo systemctl stop myapp.service</code><br><code>sudo systemctl restart myapp.service</code></p><h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p>systemd 会自动收集日志，可用 journalctl 查看：</p><p><code>journalctl -u myapp.service -f</code></p><p>-f 参数表示实时跟随日志输出。</p><h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><ol><li>权限问题：</li></ol><p>确保 User&#x2F;Group 存在，并有权限访问相关文件。</p><ol start="2"><li>环境变量问题：</li></ol><p>若环境变量过多，推荐放到 &#x2F;etc&#x2F;myapp.env 并通过 EnvironmentFile 引入。</p><ol start="3"><li>服务未启动成功：</li></ol><p>使用 journalctl -xe 或 journalctl -u myapp.service 排查详细错误。</p><h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ul><li><p>Java 应用（Spring Boot &#x2F; JAR 包）；</p></li><li><p>Go &#x2F; Rust &#x2F; C++ 编译后的二进制文件；</p></li><li><p>Python 脚本（需指定解释器路径）。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;使用-systemd-管理自定义服务&quot;&gt;&lt;a href=&quot;#使用-systemd-管理自定义服务&quot; class=&quot;headerlink&quot; title=&quot;使用 systemd 管理自定义服务&quot;&gt;&lt;/a&gt;使用 systemd 管理自定义服务&lt;/h1&gt;&lt;p&gt;本文介绍如何</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://mulladylex.github.io/project/categories/Linux/"/>
+    
+    
+    <category term="Linux服务管理" scheme="https://mulladylex.github.io/project/tags/Linux%E6%9C%8D%E5%8A%A1%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="开机自启" scheme="https://mulladylex.github.io/project/tags/%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/"/>
+    
+    <category term="日志管理" scheme="https://mulladylex.github.io/project/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="后台守护" scheme="https://mulladylex.github.io/project/tags/%E5%90%8E%E5%8F%B0%E5%AE%88%E6%8A%A4/"/>
+    
+  </entry>
   
   <entry>
     <title>windows文件共享</title>
@@ -427,34 +457,6 @@
     
     <category term="solidity" scheme="https://mulladylex.github.io/project/categories/solidity/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Coin Flip</title>
-    <link href="https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/"/>
-    <id>https://mulladylex.github.io/project/2023/11/15/Ethernaut/coinflip/</id>
-    <published>2023-11-15T12:44:02.000Z</published>
-    <updated>2023-11-15T08:34:20.534Z</updated>
-    
-    <content type="html"><![CDATA[<p>任务要求：连续猜对硬币的正反面十次。<del>区区千分之一的运气我也不是没有</del>  </p><p><strong>源代码：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs s">// SPDX-License-Identifier: MIT<br>pragma solidity ^0.8.0;<br><br>contract CoinFlip &#123;<br><br>  uint256 public consecutiveWins;<br>  uint256 lastHash;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor() &#123;<br>    consecutiveWins = 0;<br>  &#125;<br><br>  function flip(bool _guess) public returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br><br>    if (lastHash == blockValue) &#123;<br>      revert();<br>    &#125;<br><br>    lastHash = blockValue;<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br><br>    if (side == _guess) &#123;<br>      consecutiveWins++;<br>      return true;<br>    &#125; else &#123;<br>      consecutiveWins = 0;<br>      return false;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p><strong>解题点：</strong><br>硬币的正反面取决于上一个块，结果看起来是随机的但却是可预测的，我们也可以通过获取上一个区块的信息来运行一次题目的算法然后选择对应的结果。因为在一个区块中的交易不止一个，所以只要保证在生成下一个区块前将完成操作即可。</p><p>然而，最优解是通过在另外一份合约，执行预测逻辑，获得对应结果后再调用coinflip完成目标。</p><p>参考：<br>获取实例地址<br>在remix上部署一份攻击合约</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs s">contract Hack &#123;<br>  CoinFlip target;<br>  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;<br><br>  constructor(address _target) &#123;<br>    target = CoinFlip(_target);<br>  &#125;<br><br>  function flip() public &#123;<br>    bool guess = _guess();<br>    target.flip(guess);<br>  &#125;<br><br>  function _guess() private view returns (bool) &#123;<br>    uint256 blockValue = uint256(blockhash(block.number - 1));<br>    uint256 coinFlip = blockValue / FACTOR;<br>    bool side = coinFlip == 1 ? true : false;<br>    return side;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>之后连续使用攻击合约的flip方法进行攻击10次就行</p><blockquote><p>Tips：<br>SafeMath库：防溢出的增强型运算方法<br>block.num：当前区块数（需要添加一个与web3的链接<br>block.blockhash：区块哈希值</p></blockquote><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;任务要求：连续猜对硬币的正反面十次。&lt;del&gt;区区千分之一的运气我也不是没有&lt;/del&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=</summary>
-      
-    
-    
-    
-    <category term="Ethernaut" scheme="https://mulladylex.github.io/project/categories/Ethernaut/"/>
-    
-    
-    <category term="题解" scheme="https://mulladylex.github.io/project/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-    <category term="Ethereum" scheme="https://mulladylex.github.io/project/tags/Ethereum/"/>
     
   </entry>
   
