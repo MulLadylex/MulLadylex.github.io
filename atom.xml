@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-24T05:02:23.394Z</updated>
+  <updated>2025-09-24T05:06:38.814Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A-ER</title>
+    <link href="https://mulladylex.github.io/project/2025/09/24/A-ER/"/>
+    <id>https://mulladylex.github.io/project/2025/09/24/A-ER/</id>
+    <published>2025-09-24T05:05:48.000Z</published>
+    <updated>2025-09-24T05:06:38.814Z</updated>
+    
+    <content type="html"><![CDATA[<!-- TODO 数学公式的插入 --><h1 id="指数退避"><a href="#指数退避" class="headerlink" title="指数退避"></a>指数退避</h1><p>指数退避是一种通过反馈，成倍地降低某个过程的速率，以逐渐找到合适速率的算法。</p><p>最初用于以太网中，用于解决在共享媒介上进行的数据传输过程中可能出现的冲突和拥塞问题，该算法的核心思想是在发生通信错误时，通过等待一段时间后进行重试，以避免连续的冲突。重试的时间间隔随着重试次数的增加呈指数级增长，从而使得网络资源能够更加合理地分配。</p><p>在 c 次碰撞后（比如请求失败），会选择 0 和 2c - 1之间的随机值作为时隙的数量。</p><p>对于第 1 次碰撞来说，每个发送者将会等待 0 或 1 个时隙进行发送。<br>而在第 2 次碰撞后，发送者将会等待 0 到 3（ 由 计算得到）个时隙进行发送。<br>而在第 3 次碰撞后，发送者将会等待 0 到 7（ 由 计算得到）个时隙进行发送。<br>以此类推……<br>随着重传次数的增加，延迟的程度也会指数增长。</p><p>说的通俗点，每次重试的时间间隔都是上一次的两倍。</p><h2 id="指数退避的期望值"><a href="#指数退避的期望值" class="headerlink" title="指数退避的期望值"></a>指数退避的期望值</h2><p>考虑到退避时间的均匀分布，退避时间的数学期望是所有可能性的平均值。也就是说，在 c 次冲突之后，退避时隙数量在 [0,1，…，N] 中，其中 公式  ，则退避时间的数学期望（以时隙为单位）是</p><p>公式：</p><p>那么对于前面讲到的例子来说：</p><p>如果请求失败，请等待 1 +<code>random_number_milliseconds</code>秒后再重试请求。<br>如果请求失败，请等待 2 +<code>random_number_milliseconds</code>秒后再重试请求。<br>如果请求失败，请等待 4 +<code>random_number_milliseconds</code>秒后再重试请求。<br>依此类推，等待时间上限为<code>maximum_backoff</code>。</p><p><strong>等待时间</strong>达到上限后，您可以继续等待并重试，直到达到<strong>重试次数</strong>上限（但接下来的重试操作不会增加各次重试之间的等待时间）。</p><p>达到 maximum_backoff 时间后，您可以继续重试。 此后执行的重试不需要继续增加退避时间。例如，如果客户端使用的 maximum_backoff 时间为 64 秒，则在达到此值后，客户端可以每 64 秒重试一次。在某个时刻，应阻止客户端无限重试。</p><h2 id="指数退避的应用"><a href="#指数退避的应用" class="headerlink" title="指数退避的应用"></a>指数退避的应用</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;!-- TODO 数学公式的插入 --&gt;
+&lt;h1 id=&quot;指数退避&quot;&gt;&lt;a href=&quot;#指数退避&quot; class=&quot;headerlink&quot; title=&quot;指数退避&quot;&gt;&lt;/a&gt;指数退避&lt;/h1&gt;&lt;p&gt;指数退避是一种通过反馈，成倍地降低某个过程的速率，以逐渐找到合适速率的算法。&lt;/</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>cex-TA</title>
@@ -430,29 +451,6 @@
       
     
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>EVM 基础</title>
-    <link href="https://mulladylex.github.io/project/2025/02/19/Solidity/evm/"/>
-    <id>https://mulladylex.github.io/project/2025/02/19/Solidity/evm/</id>
-    <published>2025-02-19T12:56:56.000Z</published>
-    <updated>2025-02-19T14:06:36.513Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#x2F;&#x2F; TODO:添加相关图片</p><h1 id="EVM-基础"><a href="#EVM-基础" class="headerlink" title="EVM 基础"></a>EVM 基础</h1><p>EVM类似于JVM，它是以太坊的核心。EVM的基本架构由堆栈、内存、存储、EVM字节码和燃料费组成。下面让我们逐一了解：</p><h2 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈 Stack"></a>栈 Stack</h2><p>EVM是基于堆栈的，这种“LIFO”（后进先出）的数据结构使得它可以实现高效的计算。</p><p>在EVM中，栈的大小是固定的，最大为1024个元素。每个元素长度为256位（32字节），但是每次操作只会操作栈顶的16个元素。</p><h2 id="内存-Memory"><a href="#内存-Memory" class="headerlink" title="内存 Memory"></a>内存 Memory</h2><p>堆栈的计算高效但是存储有限，因此EVM设计了内存对交易执行期间的数据进行存储和读取。EVM的内存是一个线性寻址存储器，可以理解为一个动态字节数组。</p><p>它支持8 bit 或256 bit的写入（<code>MSTORE8</code>&#x2F;&#x2F;<code>MSTORE</code>），但只支持256 bit 的读取（<code>MLOAD</code>）。</p><blockquote><p>需要注意的是，内存是临时性的：交易开始时，所有位置的值均为0；交易执行期间，值进行更新；交易结束时，所有值被清除，不进行持久化存储。<br>如果需要永久保留数据，就需要花费Gas使用EVM的存储</p></blockquote><h2 id="存储-Storage"><a href="#存储-Storage" class="headerlink" title="存储 Storage"></a>存储 Storage</h2><p>EVM的账户存储是一种映射（mapping，键值对存储），每个键和值都是256 bit的数据，支持256 bit的读、写操作，并且保存在每个合约账户中，持久地保存在区块链上，直到被明确地修改。</p><p>对存储的读取（<code>SLOAD</code>）和写入（<code>SSTORE</code>）都需要gas，且比内存操作更加昂贵。</p><blockquote><p>这样的设计可以防止滥用存储资源。</p></blockquote><h2 id="EVM-字节码"><a href="#EVM-字节码" class="headerlink" title="EVM 字节码"></a>EVM 字节码</h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&amp;#x2F;&amp;#x2F; TODO:添加相关图片&lt;/p&gt;
-&lt;h1 id=&quot;EVM-基础&quot;&gt;&lt;a href=&quot;#EVM-基础&quot; class=&quot;headerlink&quot; title=&quot;EVM 基础&quot;&gt;&lt;/a&gt;EVM 基础&lt;/h1&gt;&lt;p&gt;EVM类似于JVM，它是以太坊的核心。EVM</summary>
-      
-    
-    
-    
-    <category term="solidity" scheme="https://mulladylex.github.io/project/categories/solidity/"/>
     
     
   </entry>

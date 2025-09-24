@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh_CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>A-ER | LexLady</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 共 $1 行","copy":"复制","copyFinish":"完成","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script>mermaid.initialize({
+ startOnLoad: true
+ , theme: 'dark'
+});</script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link rel="stylesheet" href="/css/arknights.css"><link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark-reasonable.min.css"><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="LexLady" type="application/atom+xml">
+</head><body style="background-image:url(https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg);"><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><ol class="navContent"><li class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></li><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav><div class="search-popup"><div id="search-result"></div></div></header><article><div id="post-bg"><div id="post-title"><h1>A-ER</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2025-09-24T05:05:48.000Z" id="date"> 2025-09-24</time></div></span><br><span>Last Update: <div class="control"><time datetime="2025-09-24T05:06:38.814Z" id="updated"> 2025-09-24</time></div></span></div></div><hr><div id="post-content"><!-- TODO 数学公式的插入 -->
+<h1 id="指数退避"><a href="#指数退避" class="headerlink" title="指数退避"></a>指数退避</h1><p>指数退避是一种通过反馈，成倍地降低某个过程的速率，以逐渐找到合适速率的算法。</p>
+<p>最初用于以太网中，用于解决在共享媒介上进行的数据传输过程中可能出现的冲突和拥塞问题，该算法的核心思想是在发生通信错误时，通过等待一段时间后进行重试，以避免连续的冲突。重试的时间间隔随着重试次数的增加呈指数级增长，从而使得网络资源能够更加合理地分配。</p>
+<p>在 c 次碰撞后（比如请求失败），会选择 0 和 2c - 1之间的随机值作为时隙的数量。</p>
+<p>对于第 1 次碰撞来说，每个发送者将会等待 0 或 1 个时隙进行发送。<br>而在第 2 次碰撞后，发送者将会等待 0 到 3（ 由 计算得到）个时隙进行发送。<br>而在第 3 次碰撞后，发送者将会等待 0 到 7（ 由 计算得到）个时隙进行发送。<br>以此类推……<br>随着重传次数的增加，延迟的程度也会指数增长。</p>
+<p>说的通俗点，每次重试的时间间隔都是上一次的两倍。</p>
+<h2 id="指数退避的期望值"><a href="#指数退避的期望值" class="headerlink" title="指数退避的期望值"></a>指数退避的期望值</h2><p>考虑到退避时间的均匀分布，退避时间的数学期望是所有可能性的平均值。也就是说，在 c 次冲突之后，退避时隙数量在 [0,1，…，N] 中，其中 公式  ，则退避时间的数学期望（以时隙为单位）是</p>
+<p>公式：</p>
+<p>那么对于前面讲到的例子来说：</p>
+<p>如果请求失败，请等待 1 +<code>random_number_milliseconds</code>秒后再重试请求。<br>如果请求失败，请等待 2 +<code>random_number_milliseconds</code>秒后再重试请求。<br>如果请求失败，请等待 4 +<code>random_number_milliseconds</code>秒后再重试请求。<br>依此类推，等待时间上限为<code>maximum_backoff</code>。</p>
+<p><strong>等待时间</strong>达到上限后，您可以继续等待并重试，直到达到<strong>重试次数</strong>上限（但接下来的重试操作不会增加各次重试之间的等待时间）。</p>
+<p>达到 maximum_backoff 时间后，您可以继续重试。 此后执行的重试不需要继续增加退避时间。例如，如果客户端使用的 maximum_backoff 时间为 64 秒，则在达到此值后，客户端可以每 64 秒重试一次。在某个时刻，应阻止客户端无限重试。</p>
+<h2 id="指数退避的应用"><a href="#指数退避的应用" class="headerlink" title="指数退避的应用"></a>指数退避的应用</h2><div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2025/09/24/cex-TA/">cex-TA Prev →</a></div></div></div></div><div id="bottom-btn"><a id="to-index" href="#toc-div" title="INDEX">≡</a><a id="to-top" onClick="scrolls.scrolltop();" title="to top" style="opacity: 0; display: none;">∧</a></div></article><aside><div id="aside-top"><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Lexlady</a></h1><div id="description"></div></div><div id="aside-block"><div id="toc-div"><h1>INDEX</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="toc-number">1.</span> <span class="toc-text">指数退避</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF%E7%9A%84%E6%9C%9F%E6%9C%9B%E5%80%BC"><span class="toc-number">1.1.</span> <span class="toc-text">指数退避的期望值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">指数退避的应用</span></a></li></ol></li></ol></div></div></div><footer><nobr>published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknight</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{code.findCode();mermaid.init(undefined, ('.mermaid'));}</script><script src="/js/arknights.js"></script><script>window.addEventListener("load",()=>{reset()})</script></body></html>
