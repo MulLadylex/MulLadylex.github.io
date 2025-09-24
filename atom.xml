@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-15T17:00:58.195Z</updated>
+  <updated>2025-09-24T05:02:23.394Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cex-TA</title>
+    <link href="https://mulladylex.github.io/project/2025/09/24/cex-TA/"/>
+    <id>https://mulladylex.github.io/project/2025/09/24/cex-TA/</id>
+    <published>2025-09-24T05:01:52.000Z</published>
+    <updated>2025-09-24T05:02:23.394Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="什么是技术分析？"><a href="#什么是技术分析？" class="headerlink" title="什么是技术分析？"></a>什么是技术分析？</h1><p>技术分析是通过研究市场数据（价格、成交量和交易情况等技术指标），绘制K线走势图来预测商品价格趋势的分析手法。</p><p>技术分析主要关注在价格走势和交易量的变化，不考虑公司财务数据和市场环境等因素。使用<strong>K线图、柱状图</strong>和趋势线、支撑线、压力线等图表来分析价格走势。</p><h2 id="技术分析原理"><a href="#技术分析原理" class="headerlink" title="技术分析原理"></a>技术分析原理</h2><p>技术分析的核心原理是市场行为反映一切。基于历史价格和成交量数据，技术分析师认为可以预测未来价格走势。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;什么是技术分析？&quot;&gt;&lt;a href=&quot;#什么是技术分析？&quot; class=&quot;headerlink&quot; title=&quot;什么是技术分析？&quot;&gt;&lt;/a&gt;什么是技术分析？&lt;/h1&gt;&lt;p&gt;技术分析是通过研究市场数据（价格、成交量和交易情况等技术指标），绘制K线走势图来预测商品价格</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Systemed Service</title>
@@ -428,29 +448,6 @@
       
     <summary type="html">&lt;p&gt;&amp;#x2F;&amp;#x2F; TODO:添加相关图片&lt;/p&gt;
 &lt;h1 id=&quot;EVM-基础&quot;&gt;&lt;a href=&quot;#EVM-基础&quot; class=&quot;headerlink&quot; title=&quot;EVM 基础&quot;&gt;&lt;/a&gt;EVM 基础&lt;/h1&gt;&lt;p&gt;EVM类似于JVM，它是以太坊的核心。EVM</summary>
-      
-    
-    
-    
-    <category term="solidity" scheme="https://mulladylex.github.io/project/categories/solidity/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>HelloOpcodes</title>
-    <link href="https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/"/>
-    <id>https://mulladylex.github.io/project/2025/02/19/Solidity/opcode/</id>
-    <published>2025-02-19T12:56:56.000Z</published>
-    <updated>2025-02-19T13:25:16.315Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#x2F;&#x2F; TODO：更新EVM基础链接</p><h1 id="Opcode简介"><a href="#Opcode简介" class="headerlink" title="Opcode简介"></a>Opcode简介</h1><p> Opcode 被人们称为操作码，是以太坊智能合约的基本单元。在我们使用高级语言编写的智能合约经过编译后会成为 <strong>bytecode（字节码）</strong> 。然后才能通过这些字节码在 EVM 上执行。而这些字节码中的每一个字节都对应着一个 Opcode 。 EVM 会解析并执行这些 Opcode 以实现合约逻辑。<br>例如我们常见的如下 Opcode :</p><ul><li>STOP：停止执行。</li><li>PUSH1：将一个字节的数据压入堆栈。</li><li>SWAP1: 交换栈顶的前两个元素。</li></ul><p>通过这节内容，你将理解合约中的这些 Opcode 在做什么，那我们现在开始吧。</p><blockquote><p>如果你对 Opcode 在执行操作后对EVM的影响还不了解，可以参考这篇文章：<a href>EVM 基础</a></p></blockquote><h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&amp;#x2F;&amp;#x2F; TODO：更新EVM基础链接&lt;/p&gt;
-&lt;h1 id=&quot;Opcode简介&quot;&gt;&lt;a href=&quot;#Opcode简介&quot; class=&quot;headerlink&quot; title=&quot;Opcode简介&quot;&gt;&lt;/a&gt;Opcode简介&lt;/h1&gt;&lt;p&gt; Opcode 被人们</summary>
       
     
     
