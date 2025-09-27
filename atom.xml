@@ -6,7 +6,7 @@
   <link href="https://mulladylex.github.io/project/atom.xml" rel="self"/>
   
   <link href="https://mulladylex.github.io/project/"/>
-  <updated>2025-09-24T05:06:38.814Z</updated>
+  <updated>2025-09-27T04:31:09.322Z</updated>
   <id>https://mulladylex.github.io/project/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GCC</title>
+    <link href="https://mulladylex.github.io/project/2025/09/27/c-tool/"/>
+    <id>https://mulladylex.github.io/project/2025/09/27/c-tool/</id>
+    <published>2025-09-27T04:27:13.000Z</published>
+    <updated>2025-09-27T04:31:09.322Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="在-Windows-上安装和配置-GCC（MinGW-w64）"><a href="#在-Windows-上安装和配置-GCC（MinGW-w64）" class="headerlink" title="在 Windows 上安装和配置 GCC（MinGW-w64）"></a>在 Windows 上安装和配置 GCC（MinGW-w64）</h1><h2 id="1️⃣-安装-MinGW-w64（推荐）"><a href="#1️⃣-安装-MinGW-w64（推荐）" class="headerlink" title="1️⃣ 安装 MinGW-w64（推荐）"></a>1️⃣ 安装 MinGW-w64（推荐）</h2><ol><li><p>下载 MSYS2：<br><a href="https://www.msys2.org/">https://www.msys2.org/</a></p></li><li><p>安装 MSYS2 后，打开 <strong>MSYS2 MinGW 64-bit 终端</strong></p></li><li><p>安装 GCC：</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -Syu                  <span class="hljs-comment"># 更新系统</span><br>pacman -S mingw-w64-x86_64-gcc<br></code></pre></td></tr></table></figure><p>也可以单独安装 TDM-GCC，但 MSYS2 更容易管理依赖库。</p><h2 id="2️⃣-配置环境变量"><a href="#2️⃣-配置环境变量" class="headerlink" title="2️⃣ 配置环境变量"></a>2️⃣ 配置环境变量</h2><p>把 GCC 可执行文件路径加入 %PATH%，比如 MSYS2 默认路径：</p><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">C:\msys64\mingw64\bin</span><br></code></pre></td></tr></table></figure><p>在 CMD 或 PowerShell 中测试：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">gcc --version<br></code></pre></td></tr></table></figure><p>如果显示版本号，则表示安装成功。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;在-Windows-上安装和配置-GCC（MinGW-w64）&quot;&gt;&lt;a href=&quot;#在-Windows-上安装和配置-GCC（MinGW-w64）&quot; class=&quot;headerlink&quot; title=&quot;在 Windows 上安装和配置 GCC（MinGW-w64</summary>
+      
+    
+    
+    
+    
+    <category term="tool" scheme="https://mulladylex.github.io/project/tags/tool/"/>
+    
+  </entry>
   
   <entry>
     <title>A-ER</title>
@@ -428,26 +450,6 @@
       
     <summary type="html">&lt;h1 id=&quot;什么是Git&quot;&gt;&lt;a href=&quot;#什么是Git&quot; class=&quot;headerlink&quot; title=&quot;什么是Git&quot;&gt;&lt;/a&gt;什么是Git&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;快查表&lt;br&gt;&lt;img src=&quot;/project/project/2025/03</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://mulladylex.github.io/project/2025/02/28/hexo/"/>
-    <id>https://mulladylex.github.io/project/2025/02/28/hexo/</id>
-    <published>2025-02-28T09:39:36.558Z</published>
-    <updated>2025-02-28T18:46:55.600Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hexo备忘录"><a href="#Hexo备忘录" class="headerlink" title="Hexo备忘录"></a>Hexo备忘录</h1><p>Hexo是一个基于Node.js的静态博客框架，可以快速搭建个人博客。本文记录了一些常用的Hexo命令及配置。</p><h2 id="Hexo的安装"><a href="#Hexo的安装" class="headerlink" title="Hexo的安装"></a>Hexo的安装</h2><p>需求：</p><ul><li>Node.js(版本建议使用12.0及以上)</li><li>Git</li></ul><p>满足上述的应用程序后即可使用<code>npm</code>安装Hexo。  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">npm install -g hexo-cli</span><br></code></pre></td></tr></table></figure><blockquote><p>如有需要，可以在局部安装<code>hexo</code>包，安装以后，使用<code>npx hexo &lt;command&gt;</code>执行Hexo。</p></blockquote><h2 id="Hexo的常用命令"><a href="#Hexo的常用命令" class="headerlink" title="Hexo的常用命令"></a>Hexo的常用命令</h2><h3 id="hexo的初始化"><a href="#hexo的初始化" class="headerlink" title="hexo的初始化"></a>hexo的初始化</h3><p>在安装hexo完成后，通过执行以下命令在指定文件夹中新建所需的文件。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">hexo init &lt;folder&gt;</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">cd</span> &lt;folder&gt;</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">npm install</span><br></code></pre></td></tr></table></figure><p>初始化完成后，你的项目文件将如下所示：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">.<br>├── _config.yml<br>├── package.json<br>├── scafffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br></code></pre></td></tr></table></figure><h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>Hexo的配置文件，主要配置了网站的基本信息，主题，插件等。</p><h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><h4 id="scafffolds"><a href="#scafffolds" class="headerlink" title="scafffolds"></a>scafffolds</h4><p>模版文件夹，Hexo的脚手架，用于快速生成文章模板。</p><h4 id="source"><a href="#source" class="headerlink" title="source"></a>source</h4><p>资源文件夹，存放你所有资源的地方。除<code>_post</code>文件夹之外，开头名为<code>_</code>（下划线）的文件、文件夹和隐藏的文件将会被忽略。</p><h4 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h4><p>主题文件夹，能够根据主题来渲染静态页面。</p><h3 id="hexo-new"><a href="#hexo-new" class="headerlink" title="hexo new"></a>hexo new</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">$ hexo new [layout] &lt;title&gt;<br></code></pre></td></tr></table></figure><p>新建一篇文章，未指定<strong>layout</strong>时，默认使用_config.yml中的default_layout。</p><h3 id="hexo-generate"><a href="#hexo-generate" class="headerlink" title="hexo generate"></a>hexo generate</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">$ hexo generate<br></code></pre></td></tr></table></figure><p>生成静态文件。</p><h3 id="hexo-publish"><a href="#hexo-publish" class="headerlink" title="hexo publish"></a>hexo publish</h3><h3 id="hexo-server"><a href="#hexo-server" class="headerlink" title="hexo server"></a>hexo server</h3><h3 id="hexo-deploy"><a href="#hexo-deploy" class="headerlink" title="hexo deploy"></a>hexo deploy</h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Hexo备忘录&quot;&gt;&lt;a href=&quot;#Hexo备忘录&quot; class=&quot;headerlink&quot; title=&quot;Hexo备忘录&quot;&gt;&lt;/a&gt;Hexo备忘录&lt;/h1&gt;&lt;p&gt;Hexo是一个基于Node.js的静态博客框架，可以快速搭建个人博客。本文记录了一些常用的Hexo命</summary>
       
     
     
