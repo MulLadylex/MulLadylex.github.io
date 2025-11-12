@@ -1,3 +1,13 @@
+https://mulladylex.github.io/project/2024/11/20/rust/10_%E7%BB%BC%E5%90%88/
+https://mulladylex.github.io/project/2024/11/19/rust/9_%E5%88%87%E7%89%87%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2/
+https://mulladylex.github.io/project/2024/11/18/rust/8_%E5%BC%95%E7%94%A8%E4%B8%8E%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
+https://mulladylex.github.io/project/2024/11/17/rust/7_%E9%97%AD%E5%8C%85/
+https://mulladylex.github.io/project/2024/11/16/rust/6_%E8%BF%AD%E4%BB%A3%E5%99%A8/
+https://mulladylex.github.io/project/2024/11/15/rust/5_%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/
+https://mulladylex.github.io/project/2024/11/15/rust/4_%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%8E%E6%9E%9A%E4%B8%BE/
+https://mulladylex.github.io/project/2024/11/14/rust/3_%E6%89%80%E6%9C%89%E6%9D%83%E4%B8%8E%E5%80%9F%E7%94%A8/
+https://mulladylex.github.io/project/2024/11/13/rust/2_%E5%87%BD%E6%95%B0%E4%B8%8E%E6%8E%A7%E5%88%B6%E6%B5%81/
+https://mulladylex.github.io/project/2024/11/12/rust/1_%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%8F%98%E9%87%8F/
 https://mulladylex.github.io/project/2025/11/12/rust/%E5%AF%BC/
 https://mulladylex.github.io/project/2023/04/08/temp/
 https://mulladylex.github.io/project/2025/09/24/A-ER/
@@ -94,3 +104,4 @@ https://mulladylex.github.io/project/categories/Docker/
 https://mulladylex.github.io/project/categories/Spring-Boot/
 https://mulladylex.github.io/project/categories/Ethereum/
 https://mulladylex.github.io/project/categories/Linux/
+https://mulladylex.github.io/project/categories/Rust/
